@@ -1,0 +1,193 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Gaya untuk elemen nav */
+nav {
+    display: flex;
+    justify-content: space-between; /* Atur jarak antara elemen */
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+    border-bottom: 1px solid #00000050;
+}
+
+/* Gaya untuk logo */
+.logo img {
+    width: 100px; /* Sesuaikan ukuran logo */
+    height: auto;
+}
+
+/* Gaya untuk menu */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Spasi antara item menu */
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 50%; /* Memulai dari 50% kiri */
+    transform: translateX(-50%); /* Memindahkan separuh dari lebarnya untuk pusat */
+}
+
+/* Gaya untuk item menu */
+.nav-menu li {
+    display: inline;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #000; /* Warna teks */
+    padding: 10px;
+}
+
+.nav-menu a:hover {
+    color: #000000; /* Warna saat hover */
+    background-color: #fcf352b8; /* Balok berwarna biru */
+    border-radius: 5px; /* Sudut balok melengkung */
+}
+
+/* Gaya untuk tombol login di sebelah kanan */
+.login button {
+    padding: 10px 20px;
+    background-color: #04458a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.login button:hover {
+    background-color: #007bff;
+}
+
+.content{
+    text-align: justify;
+    font-size: 20px;
+    padding-top: 90px;
+    padding-left: 400px;
+    padding-right: 400px;
+    color: #00000050;
+}
+
+.content .judul {
+    font-size: 60px; /* Sesuaikan ukuran teks */
+    background: linear-gradient(270deg, #04458a, #ffe922); /* Gradient warna */
+    -webkit-background-clip: text; /* Untuk WebKit-based browsers */
+    -webkit-text-fill-color: transparent; /* Membuat teks transparan agar gradient terlihat */
+}
+
+/* Gaya untuk ikon jam di luar search bar */
+.search-bar .fa-clock {
+    font-size: 30px;
+    color: #00000050;
+    margin-right: 25px; /* Spasi antara ikon dan search bar */
+    margin-top: 10px;
+    align-self: center;
+}
+
+.icon-link {
+    text-decoration: none; /* Hilangkan garis bawah */
+    cursor: pointer; /* Ubah kursor menjadi pointer */
+}
+
+.icon-link i {
+    font-size: 24px;
+    color: #00000050;
+}
+
+.icon-link:hover i {
+    color: #000; /* Ubah warna saat dihover */
+}
+
+/* Gaya untuk input container */
+.input-container {
+    position: relative;
+    width: 1000px;
+}
+
+/* Gaya untuk ikon search di dalam search bar */
+.input-container .fa-search {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #00000050;
+}
+
+/* Gaya untuk search bar */
+.search {
+    padding-top: 130px; /* Spasi antara teks dan search bar */
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center; /* Posisikan di tengah */
+    padding-right: 150px;
+}
+
+.search-bar input {
+    width: 1100px; /* Lebar input */
+    padding: 10px;
+    padding-left: 50px;
+    border: 2px solid #00000050; /* Border dengan warna */
+    border-radius: 30px; /* Sudut yang melengkung */
+    font-size: 20px;
+}
+
+.search-bar input:focus {
+    outline: none; /* Hilangkan outline default saat input aktif */
+    border-color: #000000; /* Ubah warna border saat focus */
+}
+
+footer {
+    background-color: #04458a;
+    padding: 20px;
+    margin-top: 100px;
+    color: white;
+}
+
+.footer-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.logo img {
+    max-width: 100px;
+}
+
+.teks-footer {
+    text-align: center;
+    flex-grow: 1;
+    font-size: 18px;
+}
+
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-menu li {
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.footer-menu a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.footer-menu a:hover {
+    text-decoration: none;
+    color: #ffffff5a;
+}
