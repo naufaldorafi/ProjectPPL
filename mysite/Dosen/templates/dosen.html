@@ -1,11 +1,126 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/dosen.css' %}">
 </head>
 <body>
-    ini dosen
+    <nav>
+        <!-- Logo di sebelah kiri -->
+        <div class="logo">
+            <img src="/static/css/images/logoScriptSI.png" alt="Logo Project PPL">
+        </div>
+
+        <!-- Menu di tengah -->
+        <ul class="nav-menu">
+            <li>
+                <a href="{% url 'ide-penelitian' %}">Ide Penelitian</a>
+            </li>
+            <li>
+                <a href="{% url 'dosen' %}">Profile Dosen</a>
+            </li>
+            <li>
+                <a href="{% url 'penelitian' %}">Penelitian</a>
+            </li>
+        </ul>
+
+        <!-- Tombol Masuk di sebelah kanan -->
+        <div class="login">
+            <button>Masuk</button>
+        </div>
+    </nav>
+
+    <div class="banner">
+        <h1 class="judul">Daftar Dosen Prodi Sistem Informasi</h1>
+    </div>
+    
+    <section class="content">
+        <div class="search-bar">
+            <input type="text" placeholder="Cari Dosen">
+            <button>Cari</button>
+        </div>
+
+        <div class="profile-list">
+            <div class="profile-card">
+                <div class="profile-image">
+                    <img src="/static/css/images/blank-profile.png" alt="Profile Picture">
+                </div>
+                <div class="profile-info">
+                    <h3>Zane Sorell</h3>
+                    <p>19600421 1986011 000</p>
+                    <p>xxxxxx@gmail.com</p>
+                </div>
+                <div class="profile-action">
+                    <a href="#">Lihat Profile &rarr;</a>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-image">
+                    <img src="/static/css/images/blank-profile.png" alt="Profile Picture">
+                </div>
+                <div class="profile-info">
+                    <h3>Zane Sorell</h3>
+                    <p>19600422 1986022 000</p>
+                    <p>xxxxxx@gmail.com</p>
+                </div>
+                <div class="profile-action">
+                    <a href="#">Lihat Profile &rarr;</a>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-image">
+                    <img src="/static/css/images/blank-profile.png" alt="Profile Picture">
+                </div>
+                <div class="profile-info">
+                    <h3>Zane Sorell</h3>
+                    <p>19600422 1986022 000</p>
+                    <p>xxxxxx@gmail.com</p>
+                </div>
+                <div class="profile-action">
+                    <a href="#">Lihat Profile &rarr;</a>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-image">
+                    <img src="/static/css/images/blank-profile.png" alt="Profile Picture">
+                </div>
+                <div class="profile-info">
+                    <h3>Zane Sorell</h3>
+                    <p>19600422 1986022 000</p>
+                    <p>xxxxxx@gmail.com</p>
+                </div>
+                <div class="profile-action">
+                    <a href="#">Lihat Profile &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-list">
+            <!-- Logo di sebelah kiri -->
+            <div class="logo">
+                <img src="/static/css/images/logoScriptSI.png" alt="Logo Project PPL">
+            </div>
+            <p class="teks-footer">
+                Terimakasih karena menggunakan website ini
+            </p>
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Contact Us</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
