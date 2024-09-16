@@ -14,8 +14,8 @@ nav {
 
 /* Gaya untuk logo */
 .logo img {
-    width: 100px; /* Sesuaikan ukuran logo */
-    height: auto;
+    width: 250px !important; /* Sesuaikan ukuran logo */
+    height: 70px !important;
 }
 
 /* Gaya untuk menu */
