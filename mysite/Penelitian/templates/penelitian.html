@@ -1,11 +1,237 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project PPL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/penelitianDosen.css' %}">
+
 </head>
 <body>
-    ini penelitian
+    <nav>
+        <!-- Logo di sebelah kiri -->
+        <div class="ScriptSI">
+            <img src="{% static 'images/ScriptLogo.png' %}" alt="Logo Project PPL" >
+        </div>
+
+        <!-- Menu di tengah -->
+        <ul class="nav-menu">
+            <li>
+                <a href="{% url 'ide-penelitian' %}">Ide Penelitian</a>
+            </li>
+            <li>
+                <a href="{% url 'dosen' %}">Profile Dosen</a>
+            </li>
+            <li>
+                <a href="{% url 'penelitian' %}">Penelitian</a>
+            </li>
+        </ul>
+
+        <!-- Tombol Masuk di sebelah kanan -->
+        <div class="login">
+            <button>Masuk</button>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1 class="judul">Publikasi Dosen Prodi Sistem Informasi</h1>        
+    </div>
+
+    <div class="search-container">
+        <input type="text" placeholder="Judul Publikasi / Nama Dosen" class="search-input" >
+        <div class="filter-buttons">
+            <div class="dropdown">
+                <button class="filter-btn">
+                    <i class="fa fa-clock"></i> 
+                    Tahun <i class="fa fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">2024</a>
+                    <a href="#">2023</a>
+                    <a href="#">2020</a>
+                    <!-- Custom Range Section -->
+                    <div class="custom-range-container">
+                        <h3>Custom range</h3>
+                        <div class="range-inputs">
+                            <input type="number" placeholder="" class="range-start">
+                            <span>-</span>
+                            <input type="number" placeholder="" class="range-end">
+                        </div>
+                        <button class="search-btn">Search</button>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="filter-btn">
+                    <i class="fa fa-book"></i> 
+                    Bidang <i class="fa fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">IT Governance</a>
+                    <a href="#">Software Engineering</a>
+                    <a href="#">Data Science dan Business Intelligence</a>
+                    <a href="#">Cybersecurity</a>
+                    <a href="#">Cloud Computing</a>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="filter-btn">
+                    <i class="fa fa-user"></i> 
+                    Dosen <i class="fa fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">Drs. Kartono, M. Kom.</a>
+                    <a href="#">Badrus Zaman, S.Kom., M.Cs.</a>
+                    <a href="#">Dr. Indra Kharisma Raharjana, S.Kom., M.T.</a>
+                    <a href="#">Dr. Eva Hariyanti, S.Si., M.T.</a>
+                    <a href="#">Endah Purwanti, S.Si., M.Kom.</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-container">
+        <div class="article-title">
+            <a href="#">An Effective Hybrid Convolutional-Modified Extreme Learning Machine in Early Stage Diabetic Retinopathy</a>
+        </div>
+        <div class="authors">
+            Novitasari, D. C. R., Fatmawati, Hendradi, R., Farida, Y., Putra, R. E., Nariswari, R. & Setyowati, R. D. N.
+        </div>
+        <div class="publication-details">
+            2023, In: International Journal of Intelligent Engineering and Systems. 16, 2, p. 401-413 13 p. <br>
+            Research output: Contribution to journal › Article › peer-review
+        </div>
+        <div class="tags">
+            <div class="tag">Diabetic Retinopathy</div>
+            <div class="tag">Convolutional</div>
+            <div class="tag">Modified Extreme Learning Machine</div>
+            <div class="tag">Feature Extraction</div>
+            <div class="tag">Good Result</div>
+        </div>
+    </div>
+
+    <div class="article-container">
+        <div class="article-title">
+            <a href="#">Augmented Reality Application Development on Universitas Airlangga Museum's Sculpture as Hindu-Buddhist History Educational Media</a>
+        </div>
+        <div class="authors">
+            Hendradi, R., Anwari, I. R. M. & Ghaffari, K. A.
+        </div>
+        <div class="publication-details">
+            22 Dec 2023, AIP Conference Proceedings. <br>
+            Research output: Chapter in Book/Report/Conference proceeding › Conference contribution › peer-review
+        </div>
+        <div class="tags">
+            <div class="tag">User Response</div>
+            <div class="tag">Universitas</div>
+            <div class="tag">Educational Media</div>
+            <div class="tag">Hindu</div>
+            <div class="tag">Museum</div>
+        </div>
+    </div>
+
+    <div class="article-container">
+        <div class="article-title">
+            <a href="#">Automated Staging of Diabetic Retinopathy Using Convolutional Support Vector Machine (CSVM) Based on Fundus Image Data</a>
+        </div>
+        <div class="authors">
+            Novitasari, D. C. R., Fatmawati, Hendradi, R., Nariswari, R. & Saputra, R. A.
+        </div>
+        <div class="publication-details">
+            2023, In: International Journal on Informatics Visualization. 7, 4, p. 2223-2229 7 p. <br>
+            Research output: Contribution to journal › Article › peer-review
+        </div>
+        <div class="tags">
+            <div class="tag">Image Data</div>
+            <div class="tag">Support Vector Machine</div>
+            <div class="tag">Fundus Image</div>
+            <div class="tag">Diabetic Retinopathy</div>
+            <div class="tag">Convolutional</div>
+        </div>
+    </div>
+
+    <div class="article-container">
+        <div class="article-title">
+            <a href="#">Automated Staging of Diabetic Retinopathy Using Convolutional Support Vector Machine (CSVM) Based on Fundus Image Data</a>
+        </div>
+        <div class="authors">
+            Novitasari, D. C. R., Fatmawati, Hendradi, R., Nariswari, R. & Saputra, R. A.
+        </div>
+        <div class="publication-details">
+            2023, In: International Journal on Informatics Visualization. 7, 4, p. 2223-2229 7 p. <br>
+            Research output: Contribution to journal › Article › peer-review
+        </div>
+        <div class="tags">
+            <div class="tag">Image Data</div>
+            <div class="tag">Support Vector Machine</div>
+            <div class="tag">Fundus Image</div>
+            <div class="tag">Diabetic Retinopathy</div>
+            <div class="tag">Convolutional</div>
+        </div>
+    </div>
+
+    <div class="article-container">
+        <div class="article-title">
+            <a href="#">Augmented Reality Application Development on Universitas Airlangga Museum's Sculpture as Hindu-Buddhist History Educational Media</a>
+        </div>
+        <div class="authors">
+            Hendradi, R., Anwari, I. R. M. & Ghaffari, K. A.
+        </div>
+        <div class="publication-details">
+            22 Dec 2023, AIP Conference Proceedings. <br>
+            Research output: Chapter in Book/Report/Conference proceeding › Conference contribution › peer-review
+        </div>
+        <div class="tags">
+            <div class="tag">User Response</div>
+            <div class="tag">Universitas</div>
+            <div class="tag">Educational Media</div>
+            <div class="tag">Hindu</div>
+            <div class="tag">Museum</div>
+        </div>
+    </div>
+
+    <div class="article-container">
+        <div class="article-title">
+            <a href="#">An Effective Hybrid Convolutional-Modified Extreme Learning Machine in Early Stage Diabetic Retinopathy</a>
+        </div>
+        <div class="authors">
+            Novitasari, D. C. R., Fatmawati, Hendradi, R., Farida, Y., Putra, R. E., Nariswari, R. & Setyowati, R. D. N.
+        </div>
+        <div class="publication-details">
+            2023, In: International Journal of Intelligent Engineering and Systems. 16, 2, p. 401-413 13 p. <br>
+            Research output: Contribution to journal › Article › peer-review
+        </div>
+        <div class="tags">
+            <div class="tag">Diabetic Retinopathy</div>
+            <div class="tag">Convolutional</div>
+            <div class="tag">Modified Extreme Learning Machine</div>
+            <div class="tag">Feature Extraction</div>
+            <div class="tag">Good Result</div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-list">
+            <!-- Logo di sebelah kiri -->
+            <div class="ScriptSI">
+                <img src="{% static 'images/ScriptLogo.png' %}" alt="Logo Project PPL">
+            </div>
+            <p class="teks-footer">
+                Terimakasih karena menggunakan website ini
+            </p>
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Contact Us</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

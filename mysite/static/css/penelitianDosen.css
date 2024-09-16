@@ -1,0 +1,295 @@
+/* Navbar Section */
+nav {
+    display: flex;
+    justify-content: space-between; /* Atur jarak antara elemen */
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+    border-bottom: 1px solid #00000050;
+}
+
+/* Gaya untuk logo */
+.ScriptSI img {
+    width: 250px !important;
+    height: 70px !important;
+}
+
+
+/* Gaya untuk menu */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Spasi antara item menu */
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 50%; /* Memulai dari 50% kiri */
+    transform: translateX(-50%); /* Memindahkan separuh dari lebarnya untuk pusat */
+}
+
+/* Gaya untuk item menu */
+.nav-menu li {
+    display: inline;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #000; /* Warna teks */
+    padding: 10px;
+}
+
+.nav-menu a:hover {
+    color: #000000; /* Warna saat hover */
+    background-color: #fcf352b8; /* Balok berwarna biru */
+    border-radius: 5px; /* Sudut balok melengkung */
+}
+
+/* Gaya untuk tombol login di sebelah kanan */
+.login button {
+    padding: 10px 20px;
+    background-color: #04458a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.login button:hover {
+    background-color: #007bff;
+}
+
+/*Content Section*/
+.content {
+    text-align: center;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+/*Search Publications*/
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 2px solid #000;
+    margin-right: 10px;
+    width: 200px;
+}
+
+/*Filter Publication*/
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 10px 15px;
+    border: 2px solid #000;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-btn i {
+    font-size: 16px;
+}
+
+.filter-btn i.fa-chevron-down {
+    font-size: 10px; 
+    margin-left: 3px; 
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.custom-range-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h3 {
+    font-size: 18px;
+    text-align: left;
+    color: #ff0000;
+    font-weight: 100;
+    margin-bottom: 5px;
+}
+
+.range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.range-inputs input {
+    width: 50px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.search-btn {
+    padding: 8px 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: font-weight 0.2s ease;
+}
+
+.search-btn:hover {
+    font-weight: bold;
+}
+
+
+span {
+    margin: 0 5px; 
+}
+
+/*Publication section*/
+.article-container {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.article-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+.article-title a {
+    text-decoration: none;
+    color: #0056b3;
+}
+
+.article-title a:hover {
+    text-decoration: underline;
+}
+
+.authors {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.publication-details {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.open-access {
+    color: #d9534f;
+    font-size: 12px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.tag {
+    background-color: #e7f3ff;
+    border: 1px solid #0056b3;
+    color: #0056b3;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/*Footer Section*/
+footer {
+    background-color: #04458a;
+    padding: 20px;
+    margin-top: 100px;
+    color: white;
+}
+
+.footer-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.logo img {
+    max-width: 100px;
+}
+
+.teks-footer {
+    text-align: center;
+    flex-grow: 1;
+    font-size: 18px;
+}
+
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-menu li {
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.footer-menu a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.footer-menu a:hover {
+    text-decoration: none;
+    color: #ffffff5a;
+}
