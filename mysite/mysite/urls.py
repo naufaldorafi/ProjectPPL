@@ -23,6 +23,7 @@ from Dosen.views import Dosen
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ide-penelitian/', idePenelitian, name='ide-penelitian'),
+    path('', idePenelitian, name='ide-penelitian'),
     path('penelitian/', Penelitian, name='penelitian'),
     path('dosen/', Dosen, name='dosen'),
 ]
