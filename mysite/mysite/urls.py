@@ -19,6 +19,7 @@ from django.urls import path
 from idePenelitian.views import idePenelitian
 from Penelitian.views import Penelitian
 from Dosen.views import Dosen
+from detailDosen.views import detailDosen
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +27,5 @@ urlpatterns = [
     path('', idePenelitian, name='ide-penelitian'),
     path('penelitian/', Penelitian, name='penelitian'),
     path('dosen/', Dosen, name='dosen'),
+    path('detail-dosen/', detailDosen, name='detail-dosen'),
 ]
