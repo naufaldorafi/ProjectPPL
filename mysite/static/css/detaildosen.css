@@ -1,0 +1,459 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
+  border-bottom: 1px solid #00000050;
+}
+
+.logo img {
+  width: 250px !important;
+  height: 70px !important;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Gaya untuk item menu */
+.nav-menu li {
+  display: inline;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #000;
+  padding: 10px;
+}
+
+.nav-menu a:hover {
+  color: #000000;
+  background-color: #fcf352b8;
+  border-radius: 5px;
+}
+
+/* Gaya untuk tombol login di sebelah kanan */
+.login button {
+  padding: 10px 20px;
+  background-color: #04458a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.login button:hover {
+  background-color: #007bff;
+}
+
+.banner {
+  display: flex;
+  justify-content: center; /* Centers the text horizontally */
+  align-items: center; /* Centers the text vertically */
+  background-image: url("/static/css/images/bg-fst.jpg"); /* Corrected path to the image */
+  background-size: cover; /* Makes sure the image covers the entire banner */
+  background-position: center; /* Centers the background image */
+  height: 150px; /* Adjust the height to display the background image */
+  color: rgb(255, 255, 255); /* Ensures text is readable over the image */
+}
+
+.header-foto {
+  background-image: url("images/headers.jpg"); /* Path relatif ke gambar lokal */
+  width: 100%;
+  height: 280px;
+  margin-top: 0; /* Agar tidak ada jarak dengan navbar */
+  background-size: cover; /* Memastikan gambar mengisi area */
+  background-position: center; /* Memposisikan gambar di tengah */
+}
+
+header {
+  background-color: #f0f0f0; /* Warna latar belakang header */
+  text-align: center; /* Menempatkan konten di tengah */
+  position: relative;
+}
+
+.container {
+  max-width: 1200px; /* Lebar maksimum container */
+  margin: 0 auto; /* Membuat container berada di tengah halaman */
+}
+
+.profile-card {
+  background-color: #fff; /* Warna latar belakang kotak profil */
+  padding: 20px;
+  border-radius: 10px; /* Membuat sudut kotak menjadi membulat */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Memberikan efek bayangan */
+}
+
+/* Styling untuk rectangle di bawah header foto */
+.rectangle-profil {
+  width: 80%;
+  height: 200px;
+  position: absolute; /* Posisi absolute untuk menumpuk di atas elemen lain */
+  top: 260px; /* Jarak dari bagian atas viewport atau elemen relatif (jika relatif terhadap elemen lain) */
+  left: 50%;
+  transform: translateX(-50%); /* Memastikan rectangle tetap di tengah */
+  background-color: #ffffff; /* Warna latar belakang rectangle (sesuaikan dengan kebutuhan) */
+  z-index: 3; /* Agar rectangle berada di atas foto header */
+  opacity: 1; /* Mengatur opacity rectangle */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Mengatur jarak antara konten kiri dan kanan */
+  padding-right: 20px; /* Menambahkan padding kanan */
+}
+
+.profile-img {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 25px;
+  left: 50px;
+  border-radius: 10%; /* Membuat foto profil menjadi bulat */
+  object-fit: cover; /* Memastikan gambar sesuai dengan ukuran tanpa distorsi */
+}
+
+/* Styling untuk teks di sebelah foto profil */
+.profile-info {
+  margin-left: 200px; /* Jarak teks dari foto profil */
+}
+
+.profile-info h1 {
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #1d2026;
+  margin-top: 5px;
+  margin-left: 30px;
+}
+
+.profile-info p {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: #6e7485;
+  margin-left: 30px;
+  top: 50px;
+}
+
+/* Container untuk citation dan courses */
+.stats-info {
+  display: flex; /* Menyusun citation dan courses secara horizontal */
+  margin-top: 10px; /* Jarak antara info profile dan stats */
+}
+
+.citation-info i,
+.courses-info i {
+  font-size: 16px;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.citation-number,
+.courses-number {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  margin-left: 3px;
+  color: #1d2026;
+}
+
+.citation-label,
+.courses-label {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #6e7485;
+}
+
+.citation-info {
+  color: #564ffd;
+}
+
+.courses-info {
+  color: #ff6636;
+}
+
+/* Styling untuk container baru */
+.contact-info {
+  text-align: right;
+}
+
+.contact-info a {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: #222e44;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.social-icons a {
+  display: inline-block;
+  background-color: #f5f7fa;
+  margin-top: 5px;
+  color: #4e5566;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+  border: 10px solid transparent;
+}
+
+.social-icons a:hover {
+  background-color: #4e5566; /* Background berubah saat hover */
+  color: #ffffff; /* Warna ikon berubah menjadi putih saat hover */
+}
+
+.social-icons i {
+  font-size: 15px;
+}
+
+/* Styling untuk rectangle kepakaran */
+.rectangle-kepakaran {
+  width: 31%;
+  height: 140px;
+  position: relative; /* Posisi absolute untuk menumpuk di atas elemen lain */
+  top: 110px; /* Jarak dari bagian atas viewport atau elemen relatif (jika relatif terhadap elemen lain) */
+  right: -9.26%;
+  background-color: #ffffff; /* Warna latar belakang rectangle (sesuaikan dengan kebutuhan) */
+  z-index: 3; /* Agar rectangle berada di atas foto header */
+  opacity: 1; /* Mengatur opacity rectangle */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Mengatur jarak antara konten kiri dan kanan */
+}
+
+.rectangle-kepakaran h2 {
+  position: absolute;
+  top: 0; /* Membuat elemen h2 berada di bagian atas */
+  left: 20px; /* Sesuaikan dengan margin atau padding yang diinginkan */
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1d2026;
+}
+
+.kepakaran-list {
+  margin-top: 25px;
+  margin-left: 10px;
+}
+
+.kepakaran-item {
+  font-family: "Poppins", sans-serif;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #4ca75099; /* Background shape */
+  border-radius: 12px; /* Untuk membuat shape berbentuk rounded */
+  cursor: default;
+}
+
+.rectangle-hasil {
+  width: 49.8%;
+  height: 1040px;
+  position: relative;
+  top: -50px;
+  left: 41%;
+  background-color: #ffffff;
+  z-index: 1;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
+  margin-bottom: 20px;
+  overflow: hidden; /* Menghindari elemen keluar dari batas kotak */
+  box-sizing: border-box; /* Memastikan padding dan border termasuk dalam lebar elemen */
+}
+
+.total-penelitian {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #1d2026;
+  text-align: center;
+  margin-bottom: 5px;
+  width: 30%;
+}
+
+.underline {
+  width: 30%;
+  height: 2px;
+  background-color: #ff6636;
+  margin-bottom: 10px;
+}
+
+.rectangle-hasil h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #1d2026;
+  margin-top: 10;
+}
+
+.tab-list {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.tab-item {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.tab-number {
+  font-size: 16px;
+  font-weight: bold;
+  color: #222e44;
+  display: block;
+}
+
+.tab-subtext {
+  font-size: 11px;
+  color: #1d2026;
+  display: block;
+  margin-top: 5px;
+}
+
+.underlines {
+  width: 100%;
+  height: 2px;
+  background-color: #9999994d;
+  margin-bottom: 10px;
+}
+
+.searchresultsarea {
+  margin-left: 100px;
+  font-family: "Inter", sans-serif;
+}
+
+.searchresult h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  color: rgb(29, 1, 189);
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.searchresult p {
+  font-family: "Inter", sans-serif;
+  width: 625px;
+  font-size: 11px;
+  margin: 0;
+  color: rgb(82, 82, 82);
+}
+
+.searchresult small {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: gray;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.open-access-button {
+  display: inline-flex;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  color: #222e44;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.open-access-button i {
+  margin-right: 5px;
+  color: #eb9a42;
+}
+
+.keywords {
+  margin-top: 5px;
+}
+
+.keyword {
+  display: inline-block;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  color: #1d2026;
+  background-color: #ffffff;
+  border: 1px solid #1d2026;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+.rectangle-profil,
+.rectangle-kepakaran,
+.rectangle-hasil {
+  z-index: 1; /* Pastikan z-index cukup rendah agar footer tidak tertutup */
+  margin-bottom: 20px; /* Tambahkan margin untuk memberi jarak */
+}
+
+footer {
+  background-color: #04458a;
+  padding: 20px;
+  margin-top: 100px;
+  color: white;
+}
+
+.footer-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.logo img {
+  width: 150px !important;
+  height: 70px !important;
+}
+
+.teks-footer {
+  text-align: center;
+  flex-grow: 1;
+  font-size: 18px;
+}
+
+.footer-menu ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-menu li {
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.footer-menu a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.footer-menu a:hover {
+  text-decoration: none;
+  color: #ffffff5a;
+}

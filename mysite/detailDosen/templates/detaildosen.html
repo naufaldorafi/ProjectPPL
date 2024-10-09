@@ -1,0 +1,274 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/detaildosen.css' %}" />
+  </head>
+  <body>
+    <nav>
+      <!-- Logo di sebelah kiri -->
+      <div class="logo">
+        <img src="/static/css/images/logoScriptSI.png" alt="Logo Project PPL" />
+      </div>
+
+      <!-- Menu di tengah -->
+      <ul class="nav-menu">
+        <li>
+          <a href="{% url 'ide-penelitian' %}">Ide Penelitian</a>
+        </li>
+        <li>
+          <a href="{% url 'dosen' %}">Profile Dosen</a>
+        </li>
+        <li>
+          <a href="{% url 'penelitian' %}">Penelitian</a>
+        </li>
+      </ul>
+
+      <!-- Tombol Masuk di sebelah kanan -->
+      <div class="login">
+        <button>Masuk</button>
+      </div>
+    </nav>
+
+    <header class="header-foto"></header>
+
+    <!-- Kontainer untuk Profil Dosen -->
+    <div class="rectangle-profil">
+      <img
+        src="/static/css/images/blank-profile.png"
+        alt="Foto Profil"
+        class="profile-img"
+      />
+      <div class="profile-info">
+        <h1>Zane Sorell</h1>
+        <p>19600422 1986022 000</p>
+
+        <div class="stats-info">
+          <div class="citation-info">
+            <i class="fa fa-users"></i>
+            <span class="citation-number">430</span>
+            <span class="citation-label">citations</span>
+          </div>
+
+          <div class="courses-info">
+            <i class="fa-solid fa-circle-play"></i>
+            <span class="courses-number">7</span>
+            <span class="courses-label">courses</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-info">
+        <a href="https://dosenwebsite.com">xxxxxx@gmail.com</a>
+        <div class="social-icons">
+          <a href="https://twitter.com/dosen" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://instagram.com/in/dosen" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://youtube.com/in/dosen" target="_blank">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a href="https://whatsapp.com/in/dosen" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kontainer untuk Kepakaran -->
+    <div class="rectangle-kepakaran">
+      <h2>KEPAKARAN</h2>
+      <div class="kepakaran-list">
+        <div class="kepakaran-item">Machine Learning</div>
+        <div class="kepakaran-item">Business Intelligence</div>
+        <div class="kepakaran-item">User Interface</div>
+      </div>
+    </div>
+
+    <div class="rectangle-hasil">
+      <span class="total-penelitian">Penelitian</span>
+      <div class="underline"></div>
+      <h2>Penelitian (27)</h2>
+      <div class="tab-list">
+        <div class="tab-item">
+          <span class="tab-number">24</span>
+          <span class="tab-subtext">Artikel</span>
+        </div>
+        <div class="tab-item">
+          <span class="tab-number">20</span>
+          <span class="tab-subtext">Kontribusi Konferensi</span>
+        </div>
+        <div class="tab-item">
+          <span class="tab-number">3</span>
+          <span class="tab-subtext">Artikel Konferensi</span>
+        </div>
+        <div class="tab-item">
+          <span class="tab-number">5</span>
+          <span class="tab-subtext">Ulasan Artikel</span>
+        </div>
+      </div>
+      <div class="underlines"></div>
+
+      <!-- Kontainer untuk Hasil Pencarian -->
+      <div id="searchresultsarea">
+        <div class="searchresult">
+          <h2>
+            An Effective Hybrid Convolutional-Modified Extreme Learning Machine
+            in Early Stage Diabetic Retinopathy
+          </h2>
+          <p>
+            Novitasari, D. C. R., Fatmawati Hendradi, R., Farida, Y., Putra, R.
+            E., Nariswari, R., Saputra, R. A., Setyowati, R. D. N., 2023, In:
+            International Journal of Intelligent Engineering and Systems. 16, 2,
+            p. 401-413 13 p.
+          </p>
+          <small
+            >Research output: Contribution to journal > Article >
+            peer-review</small
+          >
+          <a href="https://example.com/journal-link" class="open-access-button">
+            <i class="fa-solid fa-unlock-keyhole"></i> Open Access
+          </a>
+          <div class="keywords">
+            <span class="keyword">Machine Learning</span>
+            <span class="keyword">Diabetic Retinopathy</span>
+            <span class="keyword">Convolutional Neural Networks</span>
+            <span class="keyword">Extreme Learning Machine</span>
+          </div>
+
+          <h2>
+            An Effective Hybrid Convolutional-Modified Extreme Learning Machine
+            in Early Stage Diabetic Retinopathy
+          </h2>
+          <p>
+            Novitasari, D. C. R., Fatmawati Hendradi, R., Farida, Y., Putra, R.
+            E., Nariswari, R., Saputra, R. A., Setyowati, R. D. N., 2023, In:
+            International Journal of Intelligent Engineering and Systems. 16, 2,
+            p. 401-413 13 p.
+          </p>
+          <small
+            >Research output: Contribution to journal > Article >
+            peer-review</small
+          >
+          <a href="https://example.com/journal-link" class="open-access-button">
+            <i class="fa-solid fa-unlock-keyhole"></i> Open Access
+          </a>
+          <div class="keywords">
+            <span class="keyword">Machine Learning</span>
+            <span class="keyword">Diabetic Retinopathy</span>
+            <span class="keyword">Convolutional Neural Networks</span>
+            <span class="keyword">Extreme Learning Machine</span>
+          </div>
+
+          <h2>
+            An Effective Hybrid Convolutional-Modified Extreme Learning Machine
+            in Early Stage Diabetic Retinopathy
+          </h2>
+          <p>
+            Novitasari, D. C. R., Fatmawati Hendradi, R., Farida, Y., Putra, R.
+            E., Nariswari, R., Saputra, R. A., Setyowati, R. D. N., 2023, In:
+            International Journal of Intelligent Engineering and Systems. 16, 2,
+            p. 401-413 13 p.
+          </p>
+          <small
+            >Research output: Contribution to journal > Article >
+            peer-review</small
+          >
+          <a href="https://example.com/journal-link" class="open-access-button">
+            <i class="fa-solid fa-unlock-keyhole"></i> Open Access
+          </a>
+          <div class="keywords">
+            <span class="keyword">Machine Learning</span>
+            <span class="keyword">Diabetic Retinopathy</span>
+            <span class="keyword">Convolutional Neural Networks</span>
+            <span class="keyword">Extreme Learning Machine</span>
+          </div>
+
+          <h2>
+            An Effective Hybrid Convolutional-Modified Extreme Learning Machine
+            in Early Stage Diabetic Retinopathy
+          </h2>
+          <p>
+            Novitasari, D. C. R., Fatmawati Hendradi, R., Farida, Y., Putra, R.
+            E., Nariswari, R., Saputra, R. A., Setyowati, R. D. N., 2023, In:
+            International Journal of Intelligent Engineering and Systems. 16, 2,
+            p. 401-413 13 p.
+          </p>
+          <small
+            >Research output: Contribution to journal > Article >
+            peer-review</small
+          >
+          <a href="https://example.com/journal-link" class="open-access-button">
+            <i class="fa-solid fa-unlock-keyhole"></i> Open Access
+          </a>
+          <div class="keywords">
+            <span class="keyword">Machine Learning</span>
+            <span class="keyword">Diabetic Retinopathy</span>
+            <span class="keyword">Convolutional Neural Networks</span>
+            <span class="keyword">Extreme Learning Machine</span>
+          </div>
+
+          <h2>
+            An Effective Hybrid Convolutional-Modified Extreme Learning Machine
+            in Early Stage Diabetic Retinopathy
+          </h2>
+          <p>
+            Novitasari, D. C. R., Fatmawati Hendradi, R., Farida, Y., Putra, R.
+            E., Nariswari, R., Saputra, R. A., Setyowati, R. D. N., 2023, In:
+            International Journal of Intelligent Engineering and Systems. 16, 2,
+            p. 401-413 13 p.
+          </p>
+          <small
+            >Research output: Contribution to journal > Article >
+            peer-review</small
+          >
+          <a href="https://example.com/journal-link" class="open-access-button">
+            <i class="fa-solid fa-unlock-keyhole"></i> Open Access
+          </a>
+          <div class="keywords">
+            <span class="keyword">Machine Learning</span>
+            <span class="keyword">Diabetic Retinopathy</span>
+            <span class="keyword">Convolutional Neural Networks</span>
+            <span class="keyword">Extreme Learning Machine</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-list">
+        <!-- Logo di sebelah kiri -->
+        <div class="logo">
+          <img
+            src="/static/css/images/logoScriptSI.png"
+            alt="Logo Project PPL"
+          />
+        </div>
+        <p class="teks-footer">Terimakasih karena menggunakan website ini</p>
+        <div class="footer-menu">
+          <ul>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
