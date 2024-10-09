@@ -20,6 +20,7 @@ from idePenelitian.views import idePenelitian
 from Penelitian.views import Penelitian
 from Dosen.views import Dosen
 from detailDosen.views import detailDosen
+from login.views import login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +29,5 @@ urlpatterns = [
     path('penelitian/', Penelitian, name='penelitian'),
     path('dosen/', Dosen, name='dosen'),
     path('detail-dosen/', detailDosen, name='detail-dosen'),
+    path('login/', login, name='login'),
 ]
