@@ -49,7 +49,8 @@ nav {
 }
 
 /* Gaya untuk tombol login di sebelah kanan */
-.button {
+.button 
+{
     padding: 10px 20px;
     background-color: #04458a;
     color: white;
