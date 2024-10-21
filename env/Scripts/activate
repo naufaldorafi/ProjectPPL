@@ -1,5 +1,5 @@
 # This file must be used with "source bin/activate" *from bash*
-# You cannot run it directly
+# you cannot run it directly
 
 deactivate () {
     # reset old environment variables
@@ -35,20 +35,8 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-<<<<<<< HEAD
 VIRTUAL_ENV="C:\Users\hp\Documents\sashaa\UNAIR\SEM 5\PPL Prak\ProjectPPL\env"
 export VIRTUAL_ENV
-=======
-# on Windows, a path can contain colons and backslashes and has to be converted:
-if [ "${OSTYPE:-}" = "cygwin" ] || [ "${OSTYPE:-}" = "msys" ] ; then
-    # transform D:\path\to\venv to /d/path/to/venv on MSYS
-    # and to /cygdrive/d/path/to/venv on Cygwin
-    export VIRTUAL_ENV=$(cygpath "C:\Naomi\Semester 5\PPL PRAK\Project\ProjectPPL\env")
-else
-    # use the path as-is
-    export VIRTUAL_ENV="C:\Naomi\Semester 5\PPL PRAK\Project\ProjectPPL\env"
-fi
->>>>>>> 72673ede0716f2fcdfbade9c948f30018dc540a3
 
 _OLD_VIRTUAL_PATH="$PATH"
 PATH="$VIRTUAL_ENV/Scripts:$PATH"
