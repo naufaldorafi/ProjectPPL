@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.   
+# Create your models here. 
 class TopikPenelitian(models.Model):
     nama = models.CharField(max_length=100)
 
@@ -17,11 +17,3 @@ class PenelitianDosen(models.Model):
 
     def __str__(self):
         return self.judul
-
-class KataKunci(models.Model):
-    nama = models.CharField(max_length=100)
-    jenis = models.CharField(max_length=1)
-    kategori = models.CharField(max_length=1)
-
-    def __str__(self):
-        return self.nama
