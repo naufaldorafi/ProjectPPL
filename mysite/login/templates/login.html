@@ -1,48 +1,81 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
     <style>
-        .srouce{
-            text-align: center;
-            color: #ffffff;
-            padding: 10px;
-        }
+      .srouce {
+        text-align: center;
+        color: #ffffff;
+        padding: 10px;
+      }
 
-        body{
-            background-image: url("{% static 'css/images/aseectower.png' %}");
-        }
+      body {
+        background-image: url("{% static 'css/images/aseectower.png' %}");
+      }
+
+      .register-text {
+        text-align: center;
+        margin-top: 20px;
+        font-family: "Poppins", sans-serif !important;
+        font-size: 14px !important;
+        color: #555 !important; /* Warna teks untuk pertanyaan */
+      }
+
+      .register-text a {
+        color: #004aad !important; /* Warna link untuk 'Register' */
+        font-weight: 600 !important; /* Tebalkan teks 'Register' */
+        text-decoration: none !important; /* Hilangkan garis bawah pada link */
+      }
+
+      .register-text a:hover {
+        color: #ffb37b !important; /* Warna saat di-hover */
+        text-decoration: underline !important; /* Tambahkan garis bawah saat di-hover */
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="main-container">
-        <div class="form-container">
+      <div class="form-container">
+        <div class="form-body">
+          <h2 class="title">Log in</h2>
 
-            <div class="form-body">
-                <h2 class="title">Log in</h2>
+          <form action="" class="the-form">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter your email"
+            />
 
-                <form action="" class="the-form">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter your password"
+            />
 
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Enter your email">
+            <input type="submit" value="Log In" />
+          </form>
 
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="Enter your password">
-
-                    <input type="submit" value="Log In">
-
-                </form>
-
-            </div><!-- FORM BODY-->
-
-        </div><!-- FORM CONTAINER -->
+          <!-- Link to register -->
+          <p class="register-text">
+            Do not have an account?
+            <a href="/register">Register</a>
+          </p>
+        </div>
+        <!-- FORM BODY-->
+      </div>
+      <!-- FORM CONTAINER -->
     </div>
-
-</body>
+  </body>
 </html>
