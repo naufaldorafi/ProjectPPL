@@ -6,14 +6,14 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 0 20px;
     position: relative;
     border-bottom: 1px solid #00000050;
 }
 
 .logo img {
-    width: 250px !important;
-    height: 70px !important;
+    width: 210px !important;
+    height: 90px !important;
 }
 
 .nav-menu {
@@ -45,19 +45,9 @@ nav {
     border-radius: 5px;
 }
 
-/* Gaya untuk tombol login di sebelah kanan */
-.login button {
-    padding: 10px 20px;
-    background-color: #04458a;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.login button:hover {
-    background-color: #007bff;
+.login img {
+    width: 30px;
+    height: 30px;
 }
 
 .banner {
@@ -73,8 +63,8 @@ nav {
 
 .judul {
     font-size: 40px;
-    text-align: center;      /* Center the text */
-    z-index: 1;              /* Ensures the text appears above the background image */
+    text-align: center; 
+    z-index: 1; 
 }
 
 .content {
@@ -173,26 +163,30 @@ footer {
     padding-left: 50px;
 }
 
-.logo img {
-    width: 150px !important;
-    height: 70px !important;
+.footer-logo img {
+    width: 300px !important;
+    height: 180px !important;
 }
 
-.teks-footer {
+.footer-menu {
     text-align: center;
-    flex-grow: 1;
-    font-size: 18px;
+}
+
+.footer-menu h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
 .footer-menu ul {
     list-style: none;
     padding: 0;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 0;
+    text-align: center;
 }
 
 .footer-menu li {
-    margin-left: 20px;
     margin-top: 10px;
     font-size: 18px;
 }
@@ -203,6 +197,5 @@ footer {
 }
 
 .footer-menu a:hover {
-    text-decoration: none;
     color: #ffffff5a;
 }

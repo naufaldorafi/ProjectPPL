@@ -7,17 +7,16 @@ nav {
     display: flex;
     justify-content: space-between; /* Atur jarak antara elemen */
     align-items: center;
-    padding: 10px 20px;
+    padding: 0 20px;
     position: relative;
     border-bottom: 1px solid #00000050;
 }
 
 /* Gaya untuk logo */
-.ScriptSI img {
-    width: 250px !important;
-    height: 70px !important;
+.logo img {
+    width: 210px !important;
+    height: 90px !important;
 }
-
 
 /* Gaya untuk menu */
 .nav-menu {
@@ -49,30 +48,31 @@ nav {
     border-radius: 5px; /* Sudut balok melengkung */
 }
 
-/* Gaya untuk tombol login di sebelah kanan */
-.login button {
-    padding: 10px 20px;
-    background-color: #04458a;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.login button:hover {
-    background-color: #007bff;
+.login img {
+    width: 30px;
+    height: 30px;
 }
 
 .content-list {
     padding-left: 20px;
+    padding-top: 20px;
 }
 
-/*Content Section*/
 .content {
-    text-align: center;
-    font-size: 20px;
-    padding-top: 20px;
+    display: flex;
+    justify-content: center; /* Centers the text horizontally */
+    align-items: center;     /* Centers the text vertically */
+    background-image: url('/static/css/images/bg-fst.jpg'); /* Corrected path to the image */
+    background-size: cover;  /* Makes sure the image covers the entire banner */
+    background-position: center; /* Centers the background image */
+    height: 150px;           /* Adjust the height to display the background image */
+    color: rgb(255, 255, 255);            /* Ensures text is readable over the image */
+}
+
+.judul {
+    font-size: 40px;
+    text-align: center; 
+    z-index: 1; 
 }
 
 /*Search Publications*/
@@ -152,10 +152,17 @@ nav {
 
 h3 {
     font-size: 18px;
-    text-align: left;
-    color: #ff0000;
+    text-align: center;
+    color: #ffffff;
     font-weight: 100;
     margin-bottom: 5px;
+}
+
+.footer-menu h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
 .range-inputs {
@@ -251,7 +258,6 @@ span {
     font-size: 12px;
 }
 
-/*Footer Section*/
 footer {
     background-color: #04458a;
     padding: 20px;
@@ -269,25 +275,30 @@ footer {
     padding-left: 50px;
 }
 
-.logo img {
-    max-width: 100px;
+.footer-logo img {
+    width: 300px !important;
+    height: 180px !important;
 }
 
-.teks-footer {
+.footer-menu {
     text-align: center;
-    flex-grow: 1;
-    font-size: 18px;
+}
+
+.footer-menu h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
 .footer-menu ul {
     list-style: none;
     padding: 0;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 0;
+    text-align: center;
 }
 
 .footer-menu li {
-    margin-left: 20px;
     margin-top: 10px;
     font-size: 18px;
 }
@@ -298,6 +309,5 @@ footer {
 }
 
 .footer-menu a:hover {
-    text-decoration: none;
     color: #ffffff5a;
 }

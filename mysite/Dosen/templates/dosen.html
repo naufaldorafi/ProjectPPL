@@ -15,14 +15,12 @@
     />
     <link rel="stylesheet" href="{% static 'css/dosen.css' %}" />
   </head>
+  
   <body>
     <nav>
-      <!-- Logo di sebelah kiri -->
       <div class="logo">
         <img src="/static/css/images/logoScriptSI.png" alt="Logo Project PPL" />
       </div>
-
-      <!-- Menu di tengah -->
       <ul class="nav-menu">
         <li>
           <a href="{% url 'ide-penelitian' %}">Ide Penelitian</a>
@@ -35,10 +33,11 @@
         </li>
       </ul>
 
-      <!-- Tombol Masuk di sebelah kanan -->
       <div class="login">
-        <button>Masuk</button>
-      </div>
+        <a href="{% url 'login' %}">
+            <img src="/static/images/User.png" alt="Login">
+        </a>
+    </div>
     </nav>
 
     <div class="banner">
@@ -124,22 +123,27 @@
 
     <footer>
       <div class="footer-list">
-        <!-- Logo di sebelah kiri -->
-        <div class="logo">
-          <img
-            src="/static/css/images/logoScriptSI.png"
-            alt="Logo Project PPL"
-          />
-        </div>
-        <p class="teks-footer">Terimakasih karena menggunakan website ini</p>
-        <div class="footer-menu">
-          <ul>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Contact Us</a></li>
-            <li><a href="">Privacy Policy</a></li>
-          </ul>
-        </div>
+          <div class="footer-logo">
+              <img src="/static/images/logo-footer.png" alt="Logo Project PPL">
+          </div>
+          <div class="footer-menu">
+              <h3>Explore</h3>
+              <ul>
+                  <li><a href="/ide-penelitian">Ide Penelitian</a></li>
+                  <li><a href="/dosen">Profile Dosen</a></li>
+                  <li><a href="/penelitian">Penelitian Dosen</a></li>
+              </ul>
+          </div>
+          <div class="footer-menu">
+              <h3>About</h3>
+              <ul>
+                  <li><a href="">About Us</a></li>
+                  <li><a href="">Contact Us</a></li>
+                  <li><a href="">Privacy Policy</a></li>
+              </ul>
+          </div>
       </div>
-    </footer>
+  </footer>
+
   </body>
 </html>

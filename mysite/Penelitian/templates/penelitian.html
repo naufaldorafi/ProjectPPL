@@ -1,20 +1,21 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project PPL</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'css/penelitianDosen.css' %}">
+    <link rel="stylesheet" href="{% static 'css/penelitiandosen.css' %}">
 
 </head>
+
 <body>
     <nav>
-        <!-- Logo di sebelah kiri -->
-        <div class="ScriptSI">
-            <img src="{% static 'images/ScriptLogo.png' %}" alt="Logo Project PPL" >
+        <div class="logo">
+            <img src="/static/css/images/logoScriptSI.png" alt="Logo Project PPL" />
         </div>
 
         <!-- Menu di tengah -->
@@ -30,23 +31,24 @@
             </li>
         </ul>
 
-        <!-- Tombol Masuk di sebelah kanan -->
         <div class="login">
-            <button>Masuk</button>
+            <a href="{% url 'login' %}">
+                <img src="/static/images/User.png" alt="Login">
+            </a>
         </div>
     </nav>
 
     <div class="content">
-        <h1 class="judul">Publikasi Dosen Prodi Sistem Informasi</h1>        
+        <h1 class="judul">Publikasi Dosen Prodi Sistem Informasi</h1>
     </div>
 
     <div class="content-list">
         <div class="search-container">
-            <input type="text" placeholder="Judul Publikasi / Nama Dosen" class="search-input" >
+            <input type="text" placeholder="Judul Publikasi / Nama Dosen" class="search-input">
             <div class="filter-buttons">
                 <div class="dropdown">
                     <button class="filter-btn">
-                        <i class="fa fa-clock"></i> 
+                        <i class="fa fa-clock"></i>
                         Tahun <i class="fa fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-content">
@@ -63,12 +65,12 @@
                             </div>
                             <button class="search-btn">Search</button>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="dropdown">
                     <button class="filter-btn">
-                        <i class="fa fa-book"></i> 
+                        <i class="fa fa-book"></i>
                         Bidang <i class="fa fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-content">
@@ -77,12 +79,12 @@
                         <a href="#">Data Science dan Business Intelligence</a>
                         <a href="#">Cybersecurity</a>
                         <a href="#">Cloud Computing</a>
-    
+
                     </div>
                 </div>
                 <div class="dropdown">
                     <button class="filter-btn">
-                        <i class="fa fa-user"></i> 
+                        <i class="fa fa-user"></i>
                         Dosen <i class="fa fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-content">
@@ -95,13 +97,15 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="article-container">
             <div class="article-title">
-                <a href="#">An Effective Hybrid Convolutional-Modified Extreme Learning Machine in Early Stage Diabetic Retinopathy</a>
+                <a href="#">An Effective Hybrid Convolutional-Modified Extreme Learning Machine in Early Stage Diabetic
+                    Retinopathy</a>
             </div>
             <div class="authors">
-                Novitasari, D. C. R., Fatmawati, Hendradi, R., Farida, Y., Putra, R. E., Nariswari, R. & Setyowati, R. D. N.
+                Novitasari, D. C. R., Fatmawati, Hendradi, R., Farida, Y., Putra, R. E., Nariswari, R. & Setyowati, R.
+                D. N.
             </div>
             <div class="publication-details">
                 2023, In: International Journal of Intelligent Engineering and Systems. 16, 2, p. 401-413 13 p. <br>
@@ -115,10 +119,11 @@
                 <div class="tag">Good Result</div>
             </div>
         </div>
-    
+
         <div class="article-container">
             <div class="article-title">
-                <a href="#">Augmented Reality Application Development on Universitas Airlangga Museum's Sculpture as Hindu-Buddhist History Educational Media</a>
+                <a href="#">Augmented Reality Application Development on Universitas Airlangga Museum's Sculpture as
+                    Hindu-Buddhist History Educational Media</a>
             </div>
             <div class="authors">
                 Hendradi, R., Anwari, I. R. M. & Ghaffari, K. A.
@@ -135,10 +140,11 @@
                 <div class="tag">Museum</div>
             </div>
         </div>
-    
+
         <div class="article-container">
             <div class="article-title">
-                <a href="#">Automated Staging of Diabetic Retinopathy Using Convolutional Support Vector Machine (CSVM) Based on Fundus Image Data</a>
+                <a href="#">Automated Staging of Diabetic Retinopathy Using Convolutional Support Vector Machine (CSVM)
+                    Based on Fundus Image Data</a>
             </div>
             <div class="authors">
                 Novitasari, D. C. R., Fatmawati, Hendradi, R., Nariswari, R. & Saputra, R. A.
@@ -155,10 +161,11 @@
                 <div class="tag">Convolutional</div>
             </div>
         </div>
-    
+
         <div class="article-container">
             <div class="article-title">
-                <a href="#">Automated Staging of Diabetic Retinopathy Using Convolutional Support Vector Machine (CSVM) Based on Fundus Image Data</a>
+                <a href="#">Automated Staging of Diabetic Retinopathy Using Convolutional Support Vector Machine (CSVM)
+                    Based on Fundus Image Data</a>
             </div>
             <div class="authors">
                 Novitasari, D. C. R., Fatmawati, Hendradi, R., Nariswari, R. & Saputra, R. A.
@@ -175,10 +182,11 @@
                 <div class="tag">Convolutional</div>
             </div>
         </div>
-    
+
         <div class="article-container">
             <div class="article-title">
-                <a href="#">Augmented Reality Application Development on Universitas Airlangga Museum's Sculpture as Hindu-Buddhist History Educational Media</a>
+                <a href="#">Augmented Reality Application Development on Universitas Airlangga Museum's Sculpture as
+                    Hindu-Buddhist History Educational Media</a>
             </div>
             <div class="authors">
                 Hendradi, R., Anwari, I. R. M. & Ghaffari, K. A.
@@ -195,13 +203,15 @@
                 <div class="tag">Museum</div>
             </div>
         </div>
-    
+
         <div class="article-container">
             <div class="article-title">
-                <a href="#">An Effective Hybrid Convolutional-Modified Extreme Learning Machine in Early Stage Diabetic Retinopathy</a>
+                <a href="#">An Effective Hybrid Convolutional-Modified Extreme Learning Machine in Early Stage Diabetic
+                    Retinopathy</a>
             </div>
             <div class="authors">
-                Novitasari, D. C. R., Fatmawati, Hendradi, R., Farida, Y., Putra, R. E., Nariswari, R. & Setyowati, R. D. N.
+                Novitasari, D. C. R., Fatmawati, Hendradi, R., Farida, Y., Putra, R. E., Nariswari, R. & Setyowati, R.
+                D. N.
             </div>
             <div class="publication-details">
                 2023, In: International Journal of Intelligent Engineering and Systems. 16, 2, p. 401-413 13 p. <br>
@@ -216,18 +226,23 @@
             </div>
         </div>
     </div>
-    
+
 
     <footer>
         <div class="footer-list">
-            <!-- Logo di sebelah kiri -->
-            <div class="ScriptSI">
-                <img src="{% static 'images/ScriptLogo.png' %}" alt="Logo Project PPL">
+            <div class="footer-logo">
+                <img src="/static/images/logo-footer.png" alt="Logo Project PPL">
             </div>
-            <p class="teks-footer">
-                Terimakasih karena menggunakan website ini
-            </p>
             <div class="footer-menu">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="/ide-penelitian">Ide Penelitian</a></li>
+                    <li><a href="/dosen">Profile Dosen</a></li>
+                    <li><a href="/penelitian">Penelitian Dosen</a></li>
+                </ul>
+            </div>
+            <div class="footer-menu">
+                <h3>About</h3>
                 <ul>
                     <li><a href="">About Us</a></li>
                     <li><a href="">Contact Us</a></li>
@@ -237,4 +252,5 @@
         </div>
     </footer>
 </body>
+
 </html>
