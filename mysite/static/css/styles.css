@@ -3,6 +3,30 @@ body {
 }
 
 nav {
+<<<<<<< HEAD
+    display: flex;
+    justify-content: space-between; /* Atur jarak antara elemen */
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+    border-bottom: 1px solid #00000050;
+}
+
+.logo img {
+    width: 210px !important;
+    height: 90px !important;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Memindahkan separuh dari lebarnya untuk pusat */
+=======
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,14 +49,40 @@ nav {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+>>>>>>> 8bbd07db0caec712e186c9ae12e80403233635c0
 }
 
-/* Gaya untuk item menu */
 .nav-menu li {
   display: inline;
 }
 
 .nav-menu a {
+<<<<<<< HEAD
+    text-decoration: none;
+    font-size: 20px;
+    color: #000;
+    padding: 10px;
+}
+
+.nav-menu a:hover {
+    color: #000000;
+    background-color: #fcf352b8;
+    border-radius: 5px;
+}
+
+.login img {
+    width: 30px;
+    height: 30px;
+}
+
+.content{
+    text-align: justify;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-left: 400px;
+    padding-right: 400px;
+    color: #00000050;
+=======
   text-decoration: none;
   font-size: 20px;
   color: #000;
@@ -67,6 +117,7 @@ nav {
   padding-left: 400px;
   padding-right: 400px;
   color: #00000050;
+>>>>>>> 8bbd07db0caec712e186c9ae12e80403233635c0
 }
 
 .content .judul {
@@ -116,7 +167,12 @@ nav {
 
 /* Gaya untuk search bar */
 .search {
+<<<<<<< HEAD
+    padding-top: 70px; /* Spasi antara teks dan search bar */
+    padding-bottom: 20px;
+=======
   padding-top: 130px; /* Spasi antara teks dan search bar */
+>>>>>>> 8bbd07db0caec712e186c9ae12e80403233635c0
 }
 
 .search-bar {
@@ -156,6 +212,34 @@ footer {
   padding-left: 50px;
 }
 
+<<<<<<< HEAD
+.footer-logo img {
+    width: 300px !important;
+    height: 180px !important;
+}
+
+.footer-menu {
+    text-align: center;
+}
+
+.footer-menu h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.footer-menu li {
+    margin-top: 10px;
+    font-size: 18px;
+=======
 .logo img {
   max-width: 100px;
 }
@@ -177,6 +261,7 @@ footer {
   margin-left: 20px;
   margin-top: 10px;
   font-size: 18px;
+>>>>>>> 8bbd07db0caec712e186c9ae12e80403233635c0
 }
 
 .footer-menu a {
@@ -185,6 +270,11 @@ footer {
 }
 
 .footer-menu a:hover {
+<<<<<<< HEAD
+    color: #ffffff5a;
+}
+=======
   text-decoration: none;
   color: #ffffff5a;
 }
+>>>>>>> 8bbd07db0caec712e186c9ae12e80403233635c0
