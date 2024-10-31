@@ -27,11 +27,27 @@
             </li>
         </ul>
 
-        <div class="login">
-            <a href="{% url 'login' %}">
-                <img src="/static/images/User.png" alt="Login">
-            </a>
-        </div>
+        {% if user.is_authenticated %}
+        <h3>{{ user }} 
+            <div class="login">
+                <a href="#">
+                    <img src="/static/images/User.png" alt="Login">
+                </a>
+            </div>
+            <form method="post" action="{% url 'logout' %}";>
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        </h3>
+    {% else %}
+    <div class="login">
+        <a href="{% url 'login' %}">
+            <img src="/static/images/User.png" alt="Login">
+        </a>
+    </div>
+    {% endif %}
+
+        
     </nav>
 
 <div class="content">
