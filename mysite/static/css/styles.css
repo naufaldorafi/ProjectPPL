@@ -3,7 +3,6 @@ body {
 }
 
 nav {
-<<<<<<< HEAD
     display: flex;
     justify-content: space-between; /* Atur jarak antara elemen */
     align-items: center;
@@ -26,30 +25,6 @@ nav {
     position: absolute;
     left: 50%;
     transform: translateX(-50%); /* Memindahkan separuh dari lebarnya untuk pusat */
-=======
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  position: relative;
-  border-bottom: 1px solid #00000050;
-}
-
-.logo img {
-  width: 250px !important;
-  height: 70px !important;
-}
-
-.nav-menu {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
->>>>>>> 8bbd07db0caec712e186c9ae12e80403233635c0
 }
 
 .nav-menu li {
@@ -57,7 +32,6 @@ nav {
 }
 
 .nav-menu a {
-<<<<<<< HEAD
     text-decoration: none;
     font-size: 20px;
     color: #000;
@@ -82,42 +56,6 @@ nav {
     padding-left: 400px;
     padding-right: 400px;
     color: #00000050;
-=======
-  text-decoration: none;
-  font-size: 20px;
-  color: #000;
-  padding: 10px;
-}
-
-.nav-menu a:hover {
-  color: #000000;
-  background-color: #fcf352b8;
-  border-radius: 5px;
-}
-
-/* Gaya untuk tombol login di sebelah kanan */
-.button {
-  padding: 10px 20px;
-  background-color: #04458a;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #007bff;
-}
-
-.content {
-  text-align: justify;
-  font-size: 20px;
-  padding-top: 90px;
-  padding-left: 400px;
-  padding-right: 400px;
-  color: #00000050;
->>>>>>> 8bbd07db0caec712e186c9ae12e80403233635c0
 }
 
 .content .judul {
@@ -167,12 +105,8 @@ nav {
 
 /* Gaya untuk search bar */
 .search {
-<<<<<<< HEAD
     padding-top: 70px; /* Spasi antara teks dan search bar */
     padding-bottom: 20px;
-=======
-  padding-top: 130px; /* Spasi antara teks dan search bar */
->>>>>>> 8bbd07db0caec712e186c9ae12e80403233635c0
 }
 
 .search-bar {
@@ -212,7 +146,6 @@ footer {
   padding-left: 50px;
 }
 
-<<<<<<< HEAD
 .footer-logo img {
     width: 300px !important;
     height: 180px !important;
@@ -239,29 +172,6 @@ footer {
 .footer-menu li {
     margin-top: 10px;
     font-size: 18px;
-=======
-.logo img {
-  max-width: 100px;
-}
-
-.teks-footer {
-  text-align: center;
-  flex-grow: 1;
-  font-size: 18px;
-}
-
-.footer-menu ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.footer-menu li {
-  margin-left: 20px;
-  margin-top: 10px;
-  font-size: 18px;
->>>>>>> 8bbd07db0caec712e186c9ae12e80403233635c0
 }
 
 .footer-menu a {
@@ -270,11 +180,5 @@ footer {
 }
 
 .footer-menu a:hover {
-<<<<<<< HEAD
     color: #ffffff5a;
 }
-=======
-  text-decoration: none;
-  color: #ffffff5a;
-}
->>>>>>> 8bbd07db0caec712e186c9ae12e80403233635c0
