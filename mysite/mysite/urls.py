@@ -21,6 +21,9 @@ from Penelitian.views import Penelitian
 from Dosen.views import Dosen
 from detailDosen.views import detailDosen
 from login.views import register
+from Dosen import views
+from Dosen.views import fetch_scopus_data_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,4 +34,5 @@ urlpatterns = [
     path('detail-dosen/', detailDosen, name='detail-dosen'),
     path('register/', register, name='register'),
     path('', include("django.contrib.auth.urls")),
+     path('fetch-scopus-data/', views.fetch_scopus_data_view, name='fetch_scopus_data')
 ]
