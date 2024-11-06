@@ -98,134 +98,32 @@
             </div>
         </div>
 
+        <!-- mysite/Penelitian/templates/penelitian.html -->
+        <!-- mysite/Penelitian/templates/penelitian.html -->
         <div class="article-container">
-            <div class="article-title">
-                <a href="#">An Effective Hybrid Convolutional-Modified Extreme Learning Machine in Early Stage Diabetic
-                    Retinopathy</a>
-            </div>
-            <div class="authors">
-                Novitasari, D. C. R., Fatmawati, Hendradi, R., Farida, Y., Putra, R. E., Nariswari, R. & Setyowati, R.
-                D. N.
-            </div>
-            <div class="publication-details">
-                2023, In: International Journal of Intelligent Engineering and Systems. 16, 2, p. 401-413 13 p. <br>
-                Research output: Contribution to journal › Article › peer-review
-            </div>
-            <div class="tags">
+            {% for item in penelitian %}
+                <div class="article-title">
+                    <a href="#">{{ item.judul }}</a>
+                </div>
+
+                <div class="authors">
+                    {{ item.tanggal_publikasi }}
+                </div>
+                
+                <div class="publication-details">
+                    {{ item.sumber }}
+                </div>
+            {% endfor %}
+        </div>
+
+            <!-- <div class="tags">
                 <div class="tag">Diabetic Retinopathy</div>
                 <div class="tag">Convolutional</div>
                 <div class="tag">Modified Extreme Learning Machine</div>
                 <div class="tag">Feature Extraction</div>
                 <div class="tag">Good Result</div>
-            </div>
+            </div> -->
         </div>
-
-        <div class="article-container">
-            <div class="article-title">
-                <a href="#">Augmented Reality Application Development on Universitas Airlangga Museum's Sculpture as
-                    Hindu-Buddhist History Educational Media</a>
-            </div>
-            <div class="authors">
-                Hendradi, R., Anwari, I. R. M. & Ghaffari, K. A.
-            </div>
-            <div class="publication-details">
-                22 Dec 2023, AIP Conference Proceedings. <br>
-                Research output: Chapter in Book/Report/Conference proceeding › Conference contribution › peer-review
-            </div>
-            <div class="tags">
-                <div class="tag">User Response</div>
-                <div class="tag">Universitas</div>
-                <div class="tag">Educational Media</div>
-                <div class="tag">Hindu</div>
-                <div class="tag">Museum</div>
-            </div>
-        </div>
-
-        <div class="article-container">
-            <div class="article-title">
-                <a href="#">Automated Staging of Diabetic Retinopathy Using Convolutional Support Vector Machine (CSVM)
-                    Based on Fundus Image Data</a>
-            </div>
-            <div class="authors">
-                Novitasari, D. C. R., Fatmawati, Hendradi, R., Nariswari, R. & Saputra, R. A.
-            </div>
-            <div class="publication-details">
-                2023, In: International Journal on Informatics Visualization. 7, 4, p. 2223-2229 7 p. <br>
-                Research output: Contribution to journal › Article › peer-review
-            </div>
-            <div class="tags">
-                <div class="tag">Image Data</div>
-                <div class="tag">Support Vector Machine</div>
-                <div class="tag">Fundus Image</div>
-                <div class="tag">Diabetic Retinopathy</div>
-                <div class="tag">Convolutional</div>
-            </div>
-        </div>
-
-        <div class="article-container">
-            <div class="article-title">
-                <a href="#">Automated Staging of Diabetic Retinopathy Using Convolutional Support Vector Machine (CSVM)
-                    Based on Fundus Image Data</a>
-            </div>
-            <div class="authors">
-                Novitasari, D. C. R., Fatmawati, Hendradi, R., Nariswari, R. & Saputra, R. A.
-            </div>
-            <div class="publication-details">
-                2023, In: International Journal on Informatics Visualization. 7, 4, p. 2223-2229 7 p. <br>
-                Research output: Contribution to journal › Article › peer-review
-            </div>
-            <div class="tags">
-                <div class="tag">Image Data</div>
-                <div class="tag">Support Vector Machine</div>
-                <div class="tag">Fundus Image</div>
-                <div class="tag">Diabetic Retinopathy</div>
-                <div class="tag">Convolutional</div>
-            </div>
-        </div>
-
-        <div class="article-container">
-            <div class="article-title">
-                <a href="#">Augmented Reality Application Development on Universitas Airlangga Museum's Sculpture as
-                    Hindu-Buddhist History Educational Media</a>
-            </div>
-            <div class="authors">
-                Hendradi, R., Anwari, I. R. M. & Ghaffari, K. A.
-            </div>
-            <div class="publication-details">
-                22 Dec 2023, AIP Conference Proceedings. <br>
-                Research output: Chapter in Book/Report/Conference proceeding › Conference contribution › peer-review
-            </div>
-            <div class="tags">
-                <div class="tag">User Response</div>
-                <div class="tag">Universitas</div>
-                <div class="tag">Educational Media</div>
-                <div class="tag">Hindu</div>
-                <div class="tag">Museum</div>
-            </div>
-        </div>
-
-        <div class="article-container">
-            <div class="article-title">
-                <a href="#">An Effective Hybrid Convolutional-Modified Extreme Learning Machine in Early Stage Diabetic
-                    Retinopathy</a>
-            </div>
-            <div class="authors">
-                Novitasari, D. C. R., Fatmawati, Hendradi, R., Farida, Y., Putra, R. E., Nariswari, R. & Setyowati, R.
-                D. N.
-            </div>
-            <div class="publication-details">
-                2023, In: International Journal of Intelligent Engineering and Systems. 16, 2, p. 401-413 13 p. <br>
-                Research output: Contribution to journal › Article › peer-review
-            </div>
-            <div class="tags">
-                <div class="tag">Diabetic Retinopathy</div>
-                <div class="tag">Convolutional</div>
-                <div class="tag">Modified Extreme Learning Machine</div>
-                <div class="tag">Feature Extraction</div>
-                <div class="tag">Good Result</div>
-            </div>
-        </div>
-    </div>
 
 
     <footer>
