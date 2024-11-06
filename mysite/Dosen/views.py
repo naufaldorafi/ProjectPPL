@@ -109,21 +109,38 @@ def fetch_scopus_data_view(request):
                 publication_type = item.get("subtype", "N/A")[0] if item.get("subtype") else None
                 source = item.get("prism:publicationName", "N/A")
 
-                penelitian_dosen = PenelitianDosen(
-                    judul=title,
-                    abstract=abstract,
-                    tanggal_publikasi=publication_date,
-                    tipe_publikasi=publication_type,
-                    sumber=source,
+                # Gunakan get_or_create untuk menghindari duplikasi
+                penelitian_dosen, created = PenelitianDosen.objects.get_or_create(
+                    scopus_id=scopus_id,  # Menggunakan scopus_id untuk mencari
+                    defaults={
+                        'judul': title,
+                        'abstract': abstract,
+                        'tanggal_publikasi': publication_date,
+                        'tipe_publikasi': publication_type,
+                        'sumber': source,
+                        'status': "Active"  # Atau status lain sesuai kebutuhan
+                    }
                 )
-                penelitian_dosen.save()  # Simpan ke database
-                results.append({
-                    "title": title,
-                    "abstract": abstract,
-                    "publication_date": publication_date,
-                    "publication_type": publication_type,
-                    "source": source
-                })
+                if created:
+                    results.append({
+                        "scopus_id": scopus_id,
+                        "title": title,
+                        "abstract": abstract,
+                        "publication_date": publication_date,
+                        "publication_type": publication_type,
+                        "source": source,
+                        "message": "New entry created."
+                    })
+                else:
+                    results.append({
+                        "scopus_id": scopus_id,
+                        "title": title,
+                        "abstract": abstract,
+                        "publication_date": publication_date,
+                        "publication_type": publication_type,
+                        "source": source,
+                        "message": "Entry already exists."
+                    })
         else:
             results.append({"author_id": author_id, "error": response.status_code})
         

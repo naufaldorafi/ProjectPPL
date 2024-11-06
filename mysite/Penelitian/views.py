@@ -1,5 +1,7 @@
+# Penelitian/views.py
 from django.shortcuts import render
+from .models import PenelitianDosen  # Import model PenelitianDosen
 
-# Create your views here.
 def Penelitian(request):
-    return render(request, 'penelitian.html')
+    penelitian = PenelitianDosen.objects.all()  # Ambil semua data penelitian dari model PenelitianDosen
+    return render(request, 'penelitian.html', {'penelitian': penelitian})
