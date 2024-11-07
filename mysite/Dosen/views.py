@@ -4,9 +4,10 @@ import requests
 import time
 from django.http import JsonResponse
 from Penelitian.models import PenelitianDosen, TopikPenelitian  # Import model dari app penelitian
+from .models import Dosen
 
-def Dosen(request):
-    return render(request, 'dosen.html')
+# def Dosen(request):
+    # return render(request, 'dosen.html')
 
 # def fetch_scopus_data_view(request):
 #     API_KEY = '8d1c5ea6ed9e64cfd2dce678c4ac72df'
@@ -72,6 +73,10 @@ def Dosen(request):
     
 #     return JsonResponse({"data": results})
 
+def dosen_list(request):
+    dosen_list = Dosen.objects.all()  # Mengambil semua data dosen
+    return render(request, 'dosen.html', {'dosen_list': dosen_list})
+
 def fetch_scopus_data_view(request):
     API_KEY = '8d1c5ea6ed9e64cfd2dce678c4ac72df'
     author_ids = [
@@ -86,65 +91,87 @@ def fetch_scopus_data_view(request):
     }
     
     results = []
-    for author_id in author_ids:
-        url = f'https://api.elsevier.com/content/search/scopus?query=AU-ID({author_id})'
-        response = requests.get(url, headers=headers)
-        
-        if response.status_code == 200:
-            data = response.json()
-            for item in data['search-results']['entry']:
-                title = item.get("dc:title", "N/A")
-                scopus_id = item.get("dc:identifier", "").split(":")[-1]  # Ambil scopus_id
-                
-                # Ambil abstrak menggunakan Abstract Retrieval API
-                abstract = "Abstract not available"
-                if scopus_id:
-                    abstract_url = f'https://api.elsevier.com/content/abstract/scopus_id/{scopus_id}'
-                    abstract_response = requests.get(abstract_url, headers=headers)
-                    if abstract_response.status_code == 200:
-                        abstract_data = abstract_response.json()
-                        abstract = abstract_data.get("abstracts-retrieval-response", {}).get("coredata", {}).get("dc:description", "Abstract not available")
-                
-                publication_date = item.get("prism:coverDate", None)
-                publication_type = item.get("subtype", "N/A")[0] if item.get("subtype") else None
-                source = item.get("prism:publicationName", "N/A")
 
-                # Gunakan get_or_create untuk menghindari duplikasi
-                penelitian_dosen, created = PenelitianDosen.objects.get_or_create(
-                    scopus_id=scopus_id,  # Menggunakan scopus_id untuk mencari
-                    defaults={
-                        'judul': title,
-                        'abstract': abstract,
-                        'tanggal_publikasi': publication_date,
-                        'tipe_publikasi': publication_type,
-                        'sumber': source,
-                        'status': "Active"  # Atau status lain sesuai kebutuhan
-                    }
-                )
-                if created:
-                    results.append({
-                        "scopus_id": scopus_id,
-                        "title": title,
-                        "abstract": abstract,
-                        "publication_date": publication_date,
-                        "publication_type": publication_type,
-                        "source": source,
-                        "message": "New entry created."
-                    })
-                else:
-                    results.append({
-                        "scopus_id": scopus_id,
-                        "title": title,
-                        "abstract": abstract,
-                        "publication_date": publication_date,
-                        "publication_type": publication_type,
-                        "source": source,
-                        "message": "Entry already exists."
-                    })
-        else:
-            results.append({"author_id": author_id, "error": response.status_code})
-        
-        # Penundaan untuk menghindari pembatasan API rate limit
-        time.sleep(1)
-    
+    for author_id in author_ids:
+        page = 1  # Start from page 1
+        while True:  # Loop through pages for pagination
+            url = f'https://api.elsevier.com/content/search/scopus?query=AU-ID({author_id})&start={(page - 1) * 25}&count=25'
+            response = requests.get(url, headers=headers)
+
+            if response.status_code == 200:
+                try:
+                    data = response.json()
+                    
+                    # Check if 'entry' exists in the response
+                    if 'entry' not in data['search-results']:
+                        results.append({"author_id": author_id, "message": "No entries found."})
+                        break  # No more pages with data
+
+                    # Process the 'entry' data
+                    for item in data['search-results']['entry']:
+                        title = item.get("dc:title", "N/A")
+                        scopus_id = item.get("dc:identifier", "").split(":")[-1]
+
+                        # Only fetch abstract if scopus_id exists
+                        abstract = "Abstract not available"
+                        if scopus_id:
+                            abstract_url = f'https://api.elsevier.com/content/abstract/scopus_id/{scopus_id}'
+                            abstract_response = requests.get(abstract_url, headers=headers)
+                            if abstract_response.status_code == 200:
+                                abstract_data = abstract_response.json()
+                                abstract = abstract_data.get("abstracts-retrieval-response", {}).get("coredata", {}).get("dc:description", "Abstract not available")
+
+                        publication_date = item.get("prism:coverDate", None)
+                        publication_type = item.get("subtype", "N/A")[0] if item.get("subtype") else None
+                        source = item.get("prism:publicationName", "N/A")
+
+                        # Use get_or_create to avoid duplicate scopus_id
+                        penelitian_dosen, created = PenelitianDosen.objects.get_or_create(
+                            scopus_id=scopus_id,  # Ensure scopus_id uniqueness
+                            defaults={
+                                'author_id': author_id,
+                                'judul': title,
+                                'abstract': abstract,
+                                'tanggal_publikasi': publication_date,
+                                'tipe_publikasi': publication_type,
+                                'sumber': source,
+                            }
+                        )
+
+                        if created:
+                            results.append({
+                                "author_id": author_id,
+                                "scopus_id": scopus_id,
+                                "title": title,
+                                "abstract": abstract,
+                                "publication_date": publication_date,
+                                "publication_type": publication_type,
+                                "source": source,
+                            })
+                        else:
+                            results.append({
+                                "author_id": author_id,
+                                "scopus_id": scopus_id,
+                                "title": title,
+                                "abstract": abstract,
+                                "publication_date": publication_date,
+                                "publication_type": publication_type,
+                                "source": source,
+                            })
+
+                except KeyError as e:
+                    results.append({"author_id": author_id, "error": f"Missing key: {str(e)}"})
+            else:
+                results.append({"author_id": author_id, "error": response.status_code})
+
+            # Increment page number for pagination
+            page += 1
+
+            # Break if no more results are found in the current page
+            if len(data['search-results'].get('entry', [])) < 25:
+                break
+
+            # Sleep to avoid rate limiting
+            time.sleep(1)
+
     return JsonResponse({"data": results})
