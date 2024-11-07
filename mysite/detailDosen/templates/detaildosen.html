@@ -10,43 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="{% static 'css/detaildosen.css' %}" />
+  <link rel="stylesheet" href="/static/css/footer.css">
+  <link rel="stylesheet" href="/static/css/navbar.css">
 </head>
 
 <body>
-  <nav>
-    <!-- Logo di sebelah kiri -->
-    <div class="logo">
-      <img src="/static/css/images/logoScriptSI.png" alt="Logo Project PPL" />
-    </div>
-
-    <!-- Menu di tengah -->
-    <ul class="nav-menu">
-      <li>
-        <a href="{% url 'ide-penelitian' %}">Ide Penelitian</a>
-      </li>
-      <li>
-        <a href="{% url 'dosen' %}">Profile Dosen</a>
-      </li>
-      <li>
-        <a href="{% url 'penelitian' %}">Penelitian</a>
-      </li>
-    </ul>
-
-    <div class="login">
-      <a href="{% url 'login' %}">
-          <img src="/static/images/User.png" alt="Login">
-      </a>
-  </div>
-  </nav>
+  <!-- Menyertakan Navbar -->
+  {% include 'navbar.html' %}
 
   <header class="header-foto"></header>
 
   <!-- Kontainer untuk Profil Dosen -->
   <div class="rectangle-profil">
-    <img src="/static/css/images/blank-profile.png" alt="Foto Profil" class="profile-img" />
+    {% if dosen.FotoDosen %}
+    <img src="{{ dosen.FotoDosen.url }}" alt="Foto Profil" class="profile-img" />
+    {% endif %}
     <div class="profile-info">
-      <h1>Zane Sorell</h1>
-      <p>19600422 1986022 000</p>
+      <h1>{{ dosen.NamaDosen }}</h1>
+      <p>{{ dosen.NIDNDosen }}</p>
 
       <div class="stats-info">
         <div class="citation-info">
@@ -63,7 +44,8 @@
       </div>
     </div>
     <div class="contact-info">
-      <a href="https://dosenwebsite.com">xxxxxx@gmail.com</a>
+      <a href="mailto:{{ dosen.EmailAkun }}">{{ dosen.EmailAkun }}</a>
+    </div>
       <div class="social-icons">
         <a href="https://twitter.com/dosen" target="_blank">
           <i class="fab fa-twitter"></i>
@@ -117,19 +99,11 @@
 
     <!-- Kontainer untuk Hasil Pencarian -->
     <div id="searchresultsarea">
+      {% for penelitian in penelitian_dosen %}
       <div class="searchresult">
-        <h2>
-          An Effective Hybrid Convolutional-Modified Extreme Learning Machine
-          in Early Stage Diabetic Retinopathy
-        </h2>
-        <p>
-          Novitasari, D. C. R., Fatmawati Hendradi, R., Farida, Y., Putra, R.
-          E., Nariswari, R., Saputra, R. A., Setyowati, R. D. N., 2023, In:
-          International Journal of Intelligent Engineering and Systems. 16, 2,
-          p. 401-413 13 p.
-        </p>
-        <small>Research output: Contribution to journal > Article >
-          peer-review</small>
+        <h2>{{ penelitian.judul }}</h2>
+        <p>{{ penelitian.abstract }}</p>
+        <small>{{ penelitian.tanggal_publikasi }}</small>
         <a href="https://example.com/journal-link" class="open-access-button">
           <i class="fa-solid fa-unlock-keyhole"></i> Open Access
         </a>
@@ -139,121 +113,14 @@
           <span class="keyword">Convolutional Neural Networks</span>
           <span class="keyword">Extreme Learning Machine</span>
         </div>
-
-        <h2>
-          An Effective Hybrid Convolutional-Modified Extreme Learning Machine
-          in Early Stage Diabetic Retinopathy
-        </h2>
-        <p>
-          Novitasari, D. C. R., Fatmawati Hendradi, R., Farida, Y., Putra, R.
-          E., Nariswari, R., Saputra, R. A., Setyowati, R. D. N., 2023, In:
-          International Journal of Intelligent Engineering and Systems. 16, 2,
-          p. 401-413 13 p.
-        </p>
-        <small>Research output: Contribution to journal > Article >
-          peer-review</small>
-        <a href="https://example.com/journal-link" class="open-access-button">
-          <i class="fa-solid fa-unlock-keyhole"></i> Open Access
-        </a>
-        <div class="keywords">
-          <span class="keyword">Machine Learning</span>
-          <span class="keyword">Diabetic Retinopathy</span>
-          <span class="keyword">Convolutional Neural Networks</span>
-          <span class="keyword">Extreme Learning Machine</span>
-        </div>
-
-        <h2>
-          An Effective Hybrid Convolutional-Modified Extreme Learning Machine
-          in Early Stage Diabetic Retinopathy
-        </h2>
-        <p>
-          Novitasari, D. C. R., Fatmawati Hendradi, R., Farida, Y., Putra, R.
-          E., Nariswari, R., Saputra, R. A., Setyowati, R. D. N., 2023, In:
-          International Journal of Intelligent Engineering and Systems. 16, 2,
-          p. 401-413 13 p.
-        </p>
-        <small>Research output: Contribution to journal > Article >
-          peer-review</small>
-        <a href="https://example.com/journal-link" class="open-access-button">
-          <i class="fa-solid fa-unlock-keyhole"></i> Open Access
-        </a>
-        <div class="keywords">
-          <span class="keyword">Machine Learning</span>
-          <span class="keyword">Diabetic Retinopathy</span>
-          <span class="keyword">Convolutional Neural Networks</span>
-          <span class="keyword">Extreme Learning Machine</span>
-        </div>
-
-        <h2>
-          An Effective Hybrid Convolutional-Modified Extreme Learning Machine
-          in Early Stage Diabetic Retinopathy
-        </h2>
-        <p>
-          Novitasari, D. C. R., Fatmawati Hendradi, R., Farida, Y., Putra, R.
-          E., Nariswari, R., Saputra, R. A., Setyowati, R. D. N., 2023, In:
-          International Journal of Intelligent Engineering and Systems. 16, 2,
-          p. 401-413 13 p.
-        </p>
-        <small>Research output: Contribution to journal > Article >
-          peer-review</small>
-        <a href="https://example.com/journal-link" class="open-access-button">
-          <i class="fa-solid fa-unlock-keyhole"></i> Open Access
-        </a>
-        <div class="keywords">
-          <span class="keyword">Machine Learning</span>
-          <span class="keyword">Diabetic Retinopathy</span>
-          <span class="keyword">Convolutional Neural Networks</span>
-          <span class="keyword">Extreme Learning Machine</span>
-        </div>
-
-        <h2>
-          An Effective Hybrid Convolutional-Modified Extreme Learning Machine
-          in Early Stage Diabetic Retinopathy
-        </h2>
-        <p>
-          Novitasari, D. C. R., Fatmawati Hendradi, R., Farida, Y., Putra, R.
-          E., Nariswari, R., Saputra, R. A., Setyowati, R. D. N., 2023, In:
-          International Journal of Intelligent Engineering and Systems. 16, 2,
-          p. 401-413 13 p.
-        </p>
-        <small>Research output: Contribution to journal > Article >
-          peer-review</small>
-        <a href="https://example.com/journal-link" class="open-access-button">
-          <i class="fa-solid fa-unlock-keyhole"></i> Open Access
-        </a>
-        <div class="keywords">
-          <span class="keyword">Machine Learning</span>
-          <span class="keyword">Diabetic Retinopathy</span>
-          <span class="keyword">Convolutional Neural Networks</span>
-          <span class="keyword">Extreme Learning Machine</span>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
 
-  <footer>
-    <div class="footer-list">
-      <div class="footer-logo">
-        <img src="/static/images/logo-footer.png" alt="Logo Project PPL">
-      </div>
-      <div class="footer-menu">
-        <h3>Explore</h3>
-        <ul>
-          <li><a href="/ide-penelitian">Ide Penelitian</a></li>
-          <li><a href="/dosen">Profile Dosen</a></li>
-          <li><a href="/penelitian">Penelitian Dosen</a></li>
-        </ul>
-      </div>
-      <div class="footer-menu">
-        <h3>About</h3>
-        <ul>
-          <li><a href="">About Us</a></li>
-          <li><a href="">Contact Us</a></li>
-          <li><a href="">Privacy Policy</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
+  <!-- Menyertakan Footer -->
+  {% include 'footer.html' %}
+
 </body>
 
 </html>

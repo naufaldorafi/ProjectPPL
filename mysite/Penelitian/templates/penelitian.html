@@ -9,34 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/penelitiandosen.css' %}">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
 
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            <img src="/static/css/images/logoScriptSI.png" alt="Logo Project PPL" />
-        </div>
-
-        <!-- Menu di tengah -->
-        <ul class="nav-menu">
-            <li>
-                <a href="{% url 'ide-penelitian' %}">Ide Penelitian</a>
-            </li>
-            <li>
-                <a href="{% url 'dosen' %}">Profile Dosen</a>
-            </li>
-            <li>
-                <a href="{% url 'penelitian' %}">Penelitian</a>
-            </li>
-        </ul>
-
-        <div class="login">
-            <a href="{% url 'login' %}">
-                <img src="/static/images/User.png" alt="Login">
-            </a>
-        </div>
-    </nav>
+    <!-- Menyertakan Navbar -->
+  {% include 'navbar.html' %}
 
     <div class="content">
         <h1 class="judul">Publikasi Dosen Prodi Sistem Informasi</h1>
@@ -126,29 +106,9 @@
         </div>
 
 
-    <footer>
-        <div class="footer-list">
-            <div class="footer-logo">
-                <img src="/static/images/logo-footer.png" alt="Logo Project PPL">
-            </div>
-            <div class="footer-menu">
-                <h3>Explore</h3>
-                <ul>
-                    <li><a href="/ide-penelitian">Ide Penelitian</a></li>
-                    <li><a href="/dosen">Profile Dosen</a></li>
-                    <li><a href="/penelitian">Penelitian Dosen</a></li>
-                </ul>
-            </div>
-            <div class="footer-menu">
-                <h3>About</h3>
-                <ul>
-                    <li><a href="">About Us</a></li>
-                    <li><a href="">Contact Us</a></li>
-                    <li><a href="">Privacy Policy</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+    <!-- Menyertakan Footer -->
+    {% include 'footer.html' %}
+    
 </body>
 
 </html>
