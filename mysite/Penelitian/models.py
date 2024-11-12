@@ -15,8 +15,8 @@ class PenelitianDosen(models.Model):
     
     author_id = models.CharField(max_length=20, null=True)
     scopus_id = models.CharField(max_length=20, unique=True, null=True)
-    judul = models.CharField(max_length=100)
-    abstract = models.CharField(max_length=250, null=True)
+    judul = models.CharField(max_length=1000, null=True)
+    abstract = models.CharField(max_length=5000, null=True)
     tanggal_publikasi = models.DateField(null=True)
     tipe_publikasi = models.CharField(max_length=1, null=True)
     sumber = models.CharField(max_length=250, null=True)
