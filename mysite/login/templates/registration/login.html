@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/loginn.css' %}" />
     <style>
       .srouce {
         text-align: center;
@@ -45,12 +45,14 @@
     <div class="main-container">
       <div class="form-container">
         <div class="form-body">
-          <h2 class="title">Log in</h2>
+          <h2 class="title">Login</h2>
 
           <form method="post" class="the-form">
-            {% csrf_token %}
-            {{ form }}
-            <button type="submit">Login</button>
+              {% csrf_token %}
+              <div class="form-field">
+                  {{ form }}
+              </div>
+              <button type="submit">Login</button>
           </form>
 
           <!-- Link to register -->
