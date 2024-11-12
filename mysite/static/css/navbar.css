@@ -1,26 +1,26 @@
 nav {
-    display: flex;
-    justify-content: space-between; /* Atur jarak antara elemen */
-    align-items: center;
-    padding: 0 20px;
-    position: relative;
-    border-bottom: 1px solid #00000050;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+  border-bottom: 1px solid #00000050;
 }
 
 .logo img {
-    width: 210px !important;
-    height: 90px !important;
+  width: 210px !important;
+  height: 90px !important;
 }
 
 .nav-menu {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%); /* Memindahkan separuh dari lebarnya untuk pusat */
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-menu li {
@@ -28,19 +28,51 @@ nav {
 }
 
 .nav-menu a {
-    text-decoration: none;
-    font-size: 20px;
-    color: #000;
-    padding: 10px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #000;
+  padding: 10px;
 }
 
 .nav-menu a:hover {
-    color: #000000;
-    background-color: #fcf352b8;
-    border-radius: 5px;
+  color: #000000;
+  background-color: #fcf352b8;
+  border-radius: 5px;
 }
 
 .login img {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+/* Flexbox untuk menempatkan gambar dan nama pengguna di samping */
+.user-profile {
+  display: flex;
+  align-items: center; /* Pastikan gambar dan nama sejajar secara vertikal */
+}
+
+.user-name {
+  margin-left: 10px; /* Memberikan jarak antara gambar dan nama */
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.logout-form {
+  margin-left: 10px;
+}
+
+.logout-form button {
+  padding: 5px 15px;
+  background-color: #fcf352b8;
+  border: none;
+  border-radius: 5px;
+}
+
+.logout-form button:hover {
+  background-color: #f4e042;
+}
+
+/* Hide logout form by default */
+.logout-form {
+  display: none;
 }
