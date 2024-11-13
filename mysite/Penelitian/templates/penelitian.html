@@ -1,154 +1,131 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Penelitian Dosen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'css/penelitiandosen.css' %}">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/penelitiandosen.css' %}" />
+    <link rel="stylesheet" href="/static/css/footer.css" />
+    <link rel="stylesheet" href="/static/css/navbar.css" />
+  </head>
 
-</head>
-
-<body>
-    <nav>
-        <div class="logo">
-            <img src="/static/css/images/logoScriptSI.png" alt="Logo Project PPL" />
-        </div>
-
-        <!-- Menu di tengah -->
-        <ul class="nav-menu">
-            <li>
-                <a href="{% url 'ide-penelitian' %}">Ide Penelitian</a>
-            </li>
-            <li>
-                <a href="{% url 'dosen' %}">Profile Dosen</a>
-            </li>
-            <li>
-                <a href="{% url 'penelitian' %}">Penelitian</a>
-            </li>
-        </ul>
-
-        <div class="login">
-            <a href="{% url 'login' %}">
-                <img src="/static/images/User.png" alt="Login">
-            </a>
-        </div>
-    </nav>
+  <body>
+    <!-- Menyertakan Navbar -->
+    {% include 'navbar.html' %}
 
     <div class="content">
-        <h1 class="judul">Publikasi Dosen Prodi Sistem Informasi</h1>
+      <h1 class="judul">Publikasi Dosen Prodi Sistem Informasi</h1>
     </div>
 
     <div class="content-list">
-        <div class="search-container">
-            <input type="text" placeholder="Judul Publikasi / Nama Dosen" class="search-input">
-            <div class="filter-buttons">
-                <div class="dropdown">
-                    <button class="filter-btn">
-                        <i class="fa fa-clock"></i>
-                        Tahun <i class="fa fa-chevron-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#">2024</a>
-                        <a href="#">2023</a>
-                        <a href="#">2020</a>
-                        <!-- Custom Range Section -->
-                        <div class="custom-range-container">
-                            <h3>Custom range</h3>
-                            <div class="range-inputs">
-                                <input type="number" placeholder="" class="range-start">
-                                <span>-</span>
-                                <input type="number" placeholder="" class="range-end">
-                            </div>
-                            <button class="search-btn">Search</button>
-                        </div>
-
-                    </div>
+      <div class="search-container">
+        <input
+          type="text"
+          placeholder="Judul Publikasi / Nama Dosen"
+          class="search-input"
+        />
+        <div class="filter-buttons">
+          <div class="dropdown">
+            <button class="filter-btn">
+              <i class="fa fa-clock"></i>
+              Tahun <i class="fa fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">2024</a>
+              <a href="#">2023</a>
+              <a href="#">2020</a>
+              <!-- Custom Range Section -->
+              <div class="custom-range-container">
+                <h3>Custom range</h3>
+                <div class="range-inputs">
+                  <input type="number" placeholder="" class="range-start" />
+                  <span>-</span>
+                  <input type="number" placeholder="" class="range-end" />
                 </div>
-                <div class="dropdown">
-                    <button class="filter-btn">
-                        <i class="fa fa-book"></i>
-                        Bidang <i class="fa fa-chevron-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#">IT Governance</a>
-                        <a href="#">Software Engineering</a>
-                        <a href="#">Data Science dan Business Intelligence</a>
-                        <a href="#">Cybersecurity</a>
-                        <a href="#">Cloud Computing</a>
-
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="filter-btn">
-                        <i class="fa fa-user"></i>
-                        Dosen <i class="fa fa-chevron-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#">Drs. Kartono, M. Kom.</a>
-                        <a href="#">Badrus Zaman, S.Kom., M.Cs.</a>
-                        <a href="#">Dr. Indra Kharisma Raharjana, S.Kom., M.T.</a>
-                        <a href="#">Dr. Eva Hariyanti, S.Si., M.T.</a>
-                        <a href="#">Endah Purwanti, S.Si., M.Kom.</a>
-                    </div>
-                </div>
+                <button class="search-btn">Search</button>
+              </div>
             </div>
+          </div>
+          <div class="dropdown">
+            <button class="filter-btn">
+              <i class="fa fa-book"></i>
+              Bidang <i class="fa fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">IT Governance</a>
+              <a href="#">Software Engineering</a>
+              <a href="#">Data Science dan Business Intelligence</a>
+              <a href="#">Cybersecurity</a>
+              <a href="#">Cloud Computing</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="filter-btn">
+              <i class="fa fa-user"></i>
+              Dosen <i class="fa fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Drs. Kartono, M. Kom.</a>
+              <a href="#">Badrus Zaman, S.Kom., M.Cs.</a>
+              <a href="#">Dr. Indra Kharisma Raharjana, S.Kom., M.T.</a>
+              <a href="#">Dr. Eva Hariyanti, S.Si., M.T.</a>
+              <a href="#">Endah Purwanti, S.Si., M.Kom.</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- mysite/Penelitian/templates/penelitian.html -->
+      <div class="article-container">
+        {% for item in penelitian %}
+        <div class="article-title">
+          <a href="#">{{ item.judul }}</a>
         </div>
 
-        <!-- mysite/Penelitian/templates/penelitian.html -->
-        <!-- mysite/Penelitian/templates/penelitian.html -->
-        <div class="article-container">
-            {% for item in penelitian %}
-                <div class="article-title">
-                    <a href="#">{{ item.judul }}</a>
-                </div>
+        <div class="abstract">{{ item.abstract|truncatewords:50 }}</div>
 
-                <div class="authors">
-                    {{ item.tanggal_publikasi }}
-                </div>
-                
-                <div class="publication-details">
-                    {{ item.sumber }}
-                </div>
-            {% endfor %}
-        </div>
+        <div class="authors">{{ item.tanggal_publikasi }}</div>
 
-            <!-- <div class="tags">
+        <div class="publication-details">{{ item.sumber }}</div>
+        {% endfor %}
+      </div>
+
+      <!-- Pagination Controls -->
+      <div class="pagination">
+        <span class="step-links">
+          {% if penelitian.has_previous %}
+          <a href="?page=1">&laquo; First</a>
+          <a href="?page={{ penelitian.previous_page_number }}">Previous</a>
+          {% endif %}
+
+          <span class="current"> Page {{ penelitian.number }} </span>
+
+          {% if penelitian.has_next %}
+          <a href="?page={{ penelitian.next_page_number }}">Next</a>
+          <a href="?page={{ penelitian.paginator.num_pages }}">Last &raquo;</a>
+          {% endif %}
+        </span>
+      </div>
+
+      <!-- <div class="tags">
                 <div class="tag">Diabetic Retinopathy</div>
                 <div class="tag">Convolutional</div>
                 <div class="tag">Modified Extreme Learning Machine</div>
                 <div class="tag">Feature Extraction</div>
                 <div class="tag">Good Result</div>
             </div> -->
-        </div>
+    </div>
 
-
-    <footer>
-        <div class="footer-list">
-            <div class="footer-logo">
-                <img src="/static/images/logo-footer.png" alt="Logo Project PPL">
-            </div>
-            <div class="footer-menu">
-                <h3>Explore</h3>
-                <ul>
-                    <li><a href="/ide-penelitian">Ide Penelitian</a></li>
-                    <li><a href="/dosen">Profile Dosen</a></li>
-                    <li><a href="/penelitian">Penelitian Dosen</a></li>
-                </ul>
-            </div>
-            <div class="footer-menu">
-                <h3>About</h3>
-                <ul>
-                    <li><a href="">About Us</a></li>
-                    <li><a href="">Contact Us</a></li>
-                    <li><a href="">Privacy Policy</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-</body>
-
+    <!-- Menyertakan Footer -->
+    {% include 'footer.html' %}
+  </body>
 </html>

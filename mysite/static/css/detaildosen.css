@@ -2,69 +2,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 20px;
-  position: relative;
-  border-bottom: 1px solid #00000050;
-}
-
-.logo img {
-  width: 210px !important;
-  height: 90px !important;
-}
-
-.nav-menu {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Gaya untuk item menu */
-.nav-menu li {
-  display: inline;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  font-size: 20px;
-  color: #000;
-  padding: 10px;
-}
-
-.nav-menu a:hover {
-  color: #000000;
-  background-color: #fcf352b8;
-  border-radius: 5px;
-}
-
-/* Gaya untuk tombol login di sebelah kanan */
-.login button {
-  padding: 10px 20px;
-  background-color: #04458a;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.login button:hover {
-  background-color: #007bff;
-}
-
 .banner {
   display: flex;
   justify-content: center; /* Centers the text horizontally */
   align-items: center; /* Centers the text vertically */
-  background-image: url("/static/css/images/bg-fst.jpg"); /* Corrected path to the image */
   background-size: cover; /* Makes sure the image covers the entire banner */
   background-position: center; /* Centers the background image */
   height: 150px; /* Adjust the height to display the background image */
@@ -72,12 +13,12 @@ nav {
 }
 
 .header-foto {
-  background-image: url("images/headers.jpg"); /* Path relatif ke gambar lokal */
+  background-image: url("/static/images/fst-background.png"); /* Path yang benar */
   width: 100%;
   height: 280px;
-  margin-top: 0; /* Agar tidak ada jarak dengan navbar */
-  background-size: cover; /* Memastikan gambar mengisi area */
-  background-position: center; /* Memposisikan gambar di tengah */
+  margin-top: 0;
+  background-size: cover;
+  background-position: center;
 }
 
 header {
@@ -87,8 +28,9 @@ header {
 }
 
 .container {
-  max-width: 1200px; /* Lebar maksimum container */
-  margin: 0 auto; /* Membuat container berada di tengah halaman */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .profile-card {
@@ -185,7 +127,9 @@ header {
 
 /* Styling untuk container baru */
 .contact-info {
-  text-align: right;
+  text-align: left;
+  margin-left: 32px;
+  font-size: 12px;
 }
 
 .contact-info a {
@@ -262,7 +206,7 @@ header {
 
 .rectangle-hasil {
   width: 49.8%;
-  height: 1040px;
+  min-height: 1040px;
   position: relative;
   top: -50px;
   left: 41%;
@@ -405,58 +349,4 @@ header {
 .rectangle-hasil {
   z-index: 1; /* Pastikan z-index cukup rendah agar footer tidak tertutup */
   margin-bottom: 20px; /* Tambahkan margin untuk memberi jarak */
-}
-
-footer {
-  background-color: #04458a;
-  padding: 20px;
-  margin-top: 100px;
-  color: white;
-}
-
-.footer-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-right: 50px;
-  padding-left: 50px;
-}
-
-.footer-logo img {
-  width: 300px !important;
-  height: 180px !important;
-}
-
-.footer-menu {
-  text-align: center;
-}
-
-.footer-menu h3 {
-  font-size: 16px;
-  font-weight: bold;
-  color: #ffffff;
-  margin-bottom: 10px;
-}
-
-.footer-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-}
-
-.footer-menu li {
-  margin-top: 10px;
-  font-size: 18px;
-}
-
-.footer-menu a {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.footer-menu a:hover {
-  color: #ffffff5a;
 }

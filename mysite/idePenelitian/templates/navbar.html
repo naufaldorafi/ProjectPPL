@@ -1,0 +1,50 @@
+{% block content %}
+<nav>
+  <div class="logo">
+    <img src="/static/css/images/logoScriptSI.png" alt="Logo Project PPL" />
+  </div>
+
+  <ul class="nav-menu">
+    <li>
+      <a href="{% url 'ide-penelitian' %}">Ide Penelitian</a>
+    </li>
+    <li>
+      <a href="{% url 'dosen' %}">Profile Dosen</a>
+    </li>
+    <li>
+      <a href="{% url 'penelitian' %}">Penelitian</a>
+    </li>
+  </ul>
+
+  {% if user.is_authenticated %}
+  <div class="user-profile">
+    <span class="user-name">{{ user }}</span>
+    <div class="login">
+      <a href="javascript:void(0);" onclick="toggleLogout()">
+        <img src="/static/images/User.png" alt="Login" />
+      </a>
+    </div>
+    <div class="logout-form" style="display: none">
+      <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+      </form>
+    </div>
+  </div>
+  {% else %}
+  <div class="login">
+    <a href="{% url 'login' %}">
+      <img src="/static/images/User.png" alt="Login" />
+    </a>
+  </div>
+  {% endif %}
+</nav>
+
+<script>
+  function toggleLogout() {
+    var logoutForm = document.querySelector(".logout-form");
+    logoutForm.style.display =
+      logoutForm.style.display === "block" ? "none" : "block";
+  }
+</script>
+{% endblock %}

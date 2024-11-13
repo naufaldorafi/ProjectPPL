@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 from idePenelitian.views import idePenelitian
 from Penelitian.views import Penelitian
-from Dosen.views import Dosen
+from Dosen import views as dosen_views
 from detailDosen.views import detailDosen
 from login.views import register
 from Dosen import views
@@ -30,9 +32,9 @@ urlpatterns = [
     path('ide-penelitian/', idePenelitian, name='ide-penelitian'),
     path('', idePenelitian, name='ide-penelitian'),
     path('penelitian/', Penelitian, name='penelitian'),
-    path('dosen/', Dosen, name='dosen'),
-    path('detail-dosen/', detailDosen, name='detail-dosen'),
+    path('dosen/', dosen_views.dosen_list, name='dosen'),
+    path('detail/<int:id>/', detailDosen, name='detail-dosen'),
     path('register/', register, name='register'),
     path('', include("django.contrib.auth.urls")),
-     path('fetch-scopus-data/', views.fetch_scopus_data_view, name='fetch_scopus_data')
-]
+    path('fetch-scopus-data/', views.fetch_scopus_data_view, name='fetch_scopus_data')
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

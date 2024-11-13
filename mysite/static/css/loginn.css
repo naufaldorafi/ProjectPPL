@@ -18,15 +18,13 @@ body {
   background-attachment: fixed;
   padding: 0px;
   overflow-x: hidden;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body,
 input,
 button {
-  font-family: "Muli", sans-serif, -apple-system, BlinkMacSystemFont,
-    "Helvetica Neue", Helvetica, sans-serif;
-  outline: none;
+  font-family: "Poppins", sans-serif;
 }
 
 .main-container {
@@ -54,7 +52,7 @@ a:hover {
 .form-body {
   background-color: #ffffff;
   overflow: hidden;
-  padding: 50px;
+  padding: 50px ;
   color: #000000;
   border-radius: 20px;
   -webkit-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
@@ -69,20 +67,8 @@ a:hover {
   }
 }
 
-@media only screen and (max-width: 455px) {
-  .form-body {
-    padding: 45px 30px;
-  }
-}
-
-@media only screen and (max-width: 340px) {
-  .form-body {
-    padding: 30px 20px;
-  }
-}
-
 .form-body .title {
-  margin: 0;
+  margin: 20;
   text-align: center;
   font-weight: normal;
 }
@@ -99,6 +85,22 @@ a:hover {
   flex-direction: column;
 }
 
+.form-field{
+  font-family: "Poppins", sans-serif;
+  padding: 3px 0 0 5px;
+  font-size: 15px;
+}
+
+.form-field input, .form-field select, .form-field textarea {
+  width: 100%;
+  margin: 5px 10px 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+}
+
 .the-form label {
   margin-bottom: 5px;
   color: #000000;
@@ -107,12 +109,12 @@ a:hover {
 
 .the-form [type="email"],
 .the-form [type="password"] {
-  padding: 3px 0 0 0;
-  font-size: 16px;
-  background: rgba(0, 0, 0, 0.2);
+  padding: 3px 0 0 5px;
+  font-size: 15px;
+  background: #E8F0FE;
   border: 1px solid rgba(0, 0, 0, 0.107);
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   -webkit-transition: background 0.3s;
   transition: background 0.3s;
   color: #000000;
@@ -120,7 +122,7 @@ a:hover {
 
 .the-form [type="email"]::-webkit-input-placeholder,
 .the-form [type="password"]::-webkit-input-placeholder {
-  color: white;
+  color: #000000;
 }
 
 .the-form [type="email"]::-moz-placeholder,
@@ -130,23 +132,23 @@ a:hover {
 
 .the-form [type="email"]:-ms-input-placeholder,
 .form-container .form-body .the-form [type="password"]:-ms-input-placeholder {
-  color: white;
+  color: #000000;
 }
 
 .the-form [type="email"]::-ms-input-placeholder,
 .form-container .form-body .the-form [type="password"]::-ms-input-placeholder {
-  color: white;
+  color: #000000;
 }
 
 .the-form [type="email"]::placeholder,
 .form-container .form-body .the-form [type="password"]::placeholder {
-  color: white;
+  color: #666666;
 }
 
-.the-form [type="email"]:hover,
+/* .the-form [type="email"]:hover,
 .the-form [type="password"]:hover {
   background: rgba(0, 0, 0, 0.1);
-}
+} */
 
 .the-form [type="email"]:focus,
 .the-form [type="password"]:focus {
@@ -185,7 +187,7 @@ a:hover {
 .the-form [type="submit"] {
   background: #ffb37b;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 18px;
+  padding: 5px;
   font-size: 20px;
   border-radius: 3px;
   cursor: pointer;

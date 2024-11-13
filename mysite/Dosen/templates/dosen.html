@@ -13,26 +13,16 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <link rel="stylesheet" href="{% static 'css/dosen.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/dosen.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
   </head>
   
   <body>
-    <nav>
-      <div class="logo">
-        <img src="/static/css/images/logoScriptSI.png" alt="Logo Project PPL" />
-      </div>
-      <ul class="nav-menu">
-        <li><a href="{% url 'ide-penelitian' %}">Ide Penelitian</a></li>
-        <li><a href="{% url 'dosen' %}">Profile Dosen</a></li>
-        <li><a href="{% url 'penelitian' %}">Penelitian</a></li>
-      </ul>
 
-      <div class="login">
-        <a href="{% url 'login' %}">
-            <img src="/static/images/User.png" alt="Login">
-        </a>
-    </div>
-    </nav>
+    <!-- Menyertakan Navbar -->
+  {% include 'navbar.html' %}
 
     <div class="banner">
       <h1 class="judul">Daftar Dosen Prodi Sistem Informasi</h1>
@@ -45,166 +35,28 @@
       </div>
 
       <div class="profile-list">
-        <!-- Profile Card 1 -->
-        <div class="profile-card">
-          <div class="profile-image">
-            <img src="/static/css/images/badrus1.jpg" alt="Profile Picture" />
+      <!-- Profile Card 1 -->
+      {% for dosen in dosen_list %}
+          <div class="profile-card">
+              <div class="profile-image">
+                  <!-- Gambar bisa diubah sesuai data yang ada pada model -->
+                  {% if dosen.FotoDosen %}
+                  <img src="{{ dosen.FotoDosen.url }}" alt="Profile Picture" />
+                  {% endif %}
+              </div>
+              <div class="profile-info">
+                  <h3>{{ dosen.NamaDosen }}</h3>
+                  <p>{{ dosen.NIDNDosen }}</p>
+                  <p>{{ dosen.EmailAkun }}</p>
+              </div>
+              <div class="profile-action">
+                <a href="{% url 'detail-dosen' dosen.id %}">Lihat Profile &rarr;</a>
+            </div>
           </div>
-          <div class="profile-info">
-            <h3>Badrus Zaman</h3>
-            <p>19780126 200604 1 001</p>
-            <p>badruszaman@fst.unair.ac.id</p>
-          </div>
-          <div class="profile-action">
-            <a href="{% url 'detail-dosen' %}">Lihat Profile &rarr;</a>
-          </div>
-        </div>
-
-        <!-- Profile Card 2 -->
-        <div class="profile-card">
-          <div class="profile-image">
-            <img src="/static/css/images/indra.jpg" alt="Profile Picture" />
-          </div>
-          <div class="profile-info">
-            <h3>Dr. Indra Kharisma Raharjana, S.Kom., M.T.</h3>
-            <p>19811028 200604 1 003</p>
-            <p>indra.kharisma@fst.unair.ac.id</p>
-          </div>
-          <div class="profile-action">
-            <a href="#">Lihat Profile &rarr;</a>
-          </div>
-        </div>
-
-        <!-- Profile Card 3 -->
-        <div class="profile-card">
-          <div class="profile-image">
-            <img src="/static/css/images/hendra.jpeg" alt="Profile Picture" />
-          </div>
-          <div class="profile-info">
-            <h3>Dr. Rimuljo Hendradi, S.Si., M.Si.</h3>
-            <p>19710211 199702 1 001</p>
-            <p>rimuljo-h@fst.unair.ac.id</p>
-          </div>
-          <div class="profile-action">
-            <a href="#">Lihat Profile &rarr;</a>
-          </div>
-        </div>
-
-        <!-- Profile Card 4 -->
-        <div class="profile-card">
-          <div class="profile-image">
-            <img src="/static/css/images/etoo.jpg" alt="Profile Picture" />
-          </div>
-          <div class="profile-info">
-            <h3>Drs. Eto Wuryanto, DEA</h3>
-            <p>19660928 199102 1 001</p>
-            <p>eto-w@fst.unair.ac.id</p>
-          </div>
-          <div class="profile-action">
-            <a href="#">Lihat Profile &rarr;</a>
-          </div>
-        </div>
-
-        <!-- Profile Card 5 -->
-        <div class="profile-card">
-          <div class="profile-image">
-            <img src="/static/css/images/kartono.png" alt="Profile Picture" />
-          </div>
-          <div class="profile-info">
-            <h3>Drs. Kartono, M. Kom</h3>
-            <p>19600421 198601 1 001</p>
-            <p>kartono@fst.unair.ac.id</p>
-          </div>
-          <div class="profile-action">
-            <a href="#">Lihat Profile &rarr;</a>
-          </div>
-        </div>
-
-        <!-- Profile Card 6 -->
-        <div class="profile-card">
-          <div class="profile-image">
-            <img src="/static/css/images/taufik.jpg" alt="Profile Picture" />
-          </div>
-          <div class="profile-info">
-            <h3>Taufik, S.T., M.Kom</h3>
-            <p>19710104 200812 1 001</p>
-            <p>taufik@fst.unair.ac.id</p>
-          </div>
-          <div class="profile-action">
-            <a href="#">Lihat Profile &rarr;</a>
-          </div>
-        </div>
-
-        <!-- Profile Card 7 -->
-        <div class="profile-card">
-          <div class="profile-image">
-            <img src="/static/css/images/eva.jpg" alt="Profile Picture" />
-          </div>
-          <div class="profile-info">
-            <h3>Dr. Eva H, S.Si., M.T.</h3>
-            <p>19810508 200501 2 001</p>
-            <p>eva.hariyanti@fst.unair.ac.id</p>
-          </div>
-          <div class="profile-action">
-            <a href="#">Lihat Profile &rarr;</a>
-          </div>
-        </div>
-
-        <!-- Profile Card 8 -->
-        <div class="profile-card">
-          <div class="profile-image">
-            <img src="/static/css/images/ira-scaled.jpg" alt="Profile Picture" />
-          </div>
-          <div class="profile-info">
-            <h3>Ira Puspitasari, S.T., M.T., Ph.D</h3>
-            <p>19841027 201012 2 005</p>
-            <p>ira-p@fst.unair.ac.id</p>
-          </div>
-          <div class="profile-action">
-            <a href="#">Lihat Profile &rarr;</a>
-          </div>
-        </div>
-
-        <!-- Profile Card 9 -->
-        <div class="profile-card">
-          <div class="profile-image">
-            <img src="/static/css/images/nania.jpg" alt="Profile Picture" />
-          </div>
-          <div class="profile-info">
-            <h3>Nania Nuzulita, S.Kom., M.Kom</h3>
-            <p>19920322 201903 2 018</p>
-            <p>nania.nuzulita@fst.unair.ac.id</p>
-          </div>
-          <div class="profile-action">
-            <a href="#">Lihat Profile &rarr;</a>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </section>
-
-    <footer>
-      <div class="footer-list">
-          <div class="footer-logo">
-              <img src="/static/images/logo-footer.png" alt="Logo Project PPL">
-          </div>
-          <div class="footer-menu">
-              <h3>Explore</h3>
-              <ul>
-                  <li><a href="/ide-penelitian">Ide Penelitian</a></li>
-                  <li><a href="/dosen">Profile Dosen</a></li>
-                  <li><a href="/penelitian">Penelitian Dosen</a></li>
-              </ul>
-          </div>
-          <div class="footer-menu">
-              <h3>About</h3>
-              <ul>
-                  <li><a href="">About Us</a></li>
-                  <li><a href="">Contact Us</a></li>
-                  <li><a href="">Privacy Policy</a></li>
-              </ul>
-          </div>
-      </div>
-  </footer>
-
-  </body>
-</html>
+    
+    <!-- Menyertakan Footer -->
+    {% include 'footer.html' %}
+    </body>
+    </html>
