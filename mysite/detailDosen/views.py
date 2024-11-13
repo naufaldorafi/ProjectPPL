@@ -4,7 +4,14 @@ from Penelitian.models import PenelitianDosen
 
 # Create your views here.
 def detailDosen(request, id):
-    dosen = Dosen.objects.get(id=id)
+    dosen = get_object_or_404(Dosen, id=id)
     penelitian_dosen = PenelitianDosen.objects.filter(dosen=dosen)
     
-    return render(request, 'detaildosen.html', {'dosen': dosen, 'penelitian_dosen': penelitian_dosen})
+    # Menghitung jumlah penelitian
+    jumlah_penelitian = penelitian_dosen.count()
+    
+    return render(request, 'detaildosen.html', {
+        'dosen': dosen,
+        'penelitian_dosen': penelitian_dosen,
+        'jumlah_penelitian': jumlah_penelitian  # Kirimkan jumlah penelitian ke template
+    })
