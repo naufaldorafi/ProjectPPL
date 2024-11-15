@@ -5,6 +5,7 @@ import time
 from django.http import JsonResponse
 from Penelitian.models import PenelitianDosen, TopikPenelitian  # Import model dari app penelitian
 from .models import Dosen
+from django.conf import settings
 
 # def Dosen(request):
     # return render(request, 'dosen.html')
@@ -175,3 +176,35 @@ def fetch_scopus_data_view(request):
             time.sleep(1)
 
     return JsonResponse({"data": results})
+# Tempatkan API key Anda di sini
+SCOPUS_API_KEY = '8d1c5ea6ed9e64cfd2dce678c4ac72df'
+
+def fetch_author_profile(request, author_id):
+    # URL API Scopus untuk mengambil profil penulis berdasarkan author_id
+    url = f"https://api.elsevier.com/content/author/author_id/{author_id}"
+    
+    # Mengirim permintaan GET ke API Scopus
+    response = requests.get(url, headers={
+        "Accept": "application/json",
+        "X-ELS-APIKey": SCOPUS_API_KEY
+    })
+
+    # Memeriksa status respons
+    if response.status_code == 200:
+        data = response.json()
+
+        # Mengambil data profil penulis yang relevan
+        author_profile = {
+            "author_name": data.get("author-retrieval-response", [{}])[0].get("preferred-name", {}).get("given-name", "") + " " +
+                           data.get("author-retrieval-response", [{}])[0].get("preferred-name", {}).get("surname", ""),
+            "document_count": data.get("author-retrieval-response", [{}])[0].get("coredata", {}).get("document-count", "N/A"),
+            "citation_count": data.get("author-retrieval-response", [{}])[0].get("coredata", {}).get("citation-count", "N/A"),
+            "affiliation": data.get("author-retrieval-response", [{}])[0].get("affiliation-current", {}).get("affiliation-name", "N/A"),
+            "subject_areas": [area.get("$", "N/A") for area in data.get("author-retrieval-response", [{}])[0].get("subject-areas", {}).get("subject-area", [])]
+        }
+        
+        return JsonResponse(author_profile)
+    else:
+        return JsonResponse({
+            "error": f"Permintaan gagal dengan status {response.status_code}: {response.text}"
+        })

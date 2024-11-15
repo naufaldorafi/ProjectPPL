@@ -24,9 +24,10 @@
 <div class="search">
     <div class="search-bar">
         <!-- Ikon jam di luar search bar -->
-        <a href="#" class="icon-link">
+        <a href="#" class="icon-link" onclick="runCategorizeResearch()">
             <i class="fas fa-clock"></i>
         </a>
+        <div id="result"></div>
         
         <!-- Search bar -->
         <div class="input-container">
@@ -38,5 +39,25 @@
 
         <!-- Menyertakan Footer -->
         {% include 'footer.html' %}
+
+        <script>
+            function runCategorizeResearch() {
+                fetch("{% url 'run_categorize_research' %}", {
+                    method: "POST",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}", // Tambahkan CSRF token jika CSRF diaktifkan
+                        "Content-Type": "application/json"
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.hasil); // Lihat hasil di console
+                    // Menampilkan hasil di halaman (opsional)
+                    document.getElementById("result").innerText = JSON.stringify(data.hasil, null, 2);
+                })
+                .catch(error => console.error("Error:", error));
+            }
+        </script>
 </body>
+
 </html>
