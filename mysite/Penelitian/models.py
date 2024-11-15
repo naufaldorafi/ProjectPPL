@@ -20,7 +20,9 @@ class PenelitianDosen(models.Model):
     tanggal_publikasi = models.DateField(null=True)
     tipe_publikasi = models.CharField(max_length=1, null=True)
     sumber = models.CharField(max_length=250, null=True)
-    topikpenelitian_id = models.ForeignKey(TopikPenelitian, on_delete=models.CASCADE, null=True)
+    topik_penelitian_1 = models.ForeignKey(TopikPenelitian, on_delete=models.CASCADE, null=True, related_name='topik_penelitian_1')
+    topik_penelitian_2 = models.ForeignKey(TopikPenelitian, on_delete=models.CASCADE, null=True, related_name='topik_penelitian_2')
+    topik_penelitian_3 = models.ForeignKey(TopikPenelitian, on_delete=models.CASCADE, null=True, related_name='topik_penelitian_3')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='Active')
     dosen = models.ForeignKey(Dosen, on_delete=models.CASCADE, null=True)
     
