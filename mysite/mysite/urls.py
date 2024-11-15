@@ -1,7 +1,7 @@
 """
 URL configuration for mysite project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
+The urlpatterns list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
 Examples:
 Function views
@@ -19,12 +19,12 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from idePenelitian.views import idePenelitian
-from Penelitian.views import Penelitian
+from Penelitian.views import Penelitian, run_categorize_research
 from Dosen import views as dosen_views
 from detailDosen.views import detailDosen
 from login.views import register
 from Dosen import views
-from Dosen.views import fetch_scopus_data_view
+from Dosen.views import fetch_scopus_data_view, fetch_author_profile
 
 
 urlpatterns = [
@@ -36,5 +36,7 @@ urlpatterns = [
     path('detail/<int:id>/', detailDosen, name='detail-dosen'),
     path('register/', register, name='register'),
     path('', include("django.contrib.auth.urls")),
+    path('run-categorize-research/', run_categorize_research, name='run_categorize_research'),
+    path('fetch-author-profile/', fetch_author_profile, name='fetch_author_profile'),
     path('fetch-scopus-data/', views.fetch_scopus_data_view, name='fetch_scopus_data')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

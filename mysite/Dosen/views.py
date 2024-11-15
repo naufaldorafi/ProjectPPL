@@ -5,6 +5,7 @@ import time
 from django.http import JsonResponse
 from Penelitian.models import PenelitianDosen, TopikPenelitian  # Import model dari app penelitian
 from .models import Dosen
+from django.conf import settings
 
 # def Dosen(request):
     # return render(request, 'dosen.html')
@@ -175,3 +176,62 @@ def fetch_scopus_data_view(request):
             time.sleep(1)
 
     return JsonResponse({"data": results})
+# Tempatkan API key Anda di sini
+SCOPUS_API_KEY = '8d1c5ea6ed9e64cfd2dce678c4ac72df'
+
+def fetch_author_profile(request):
+    # Daftar author_id yang didaftarkan secara manual
+    author_ids = ['57210671389', '57210823615', '57212507646', '56426242200', '57222305409',
+        '57202163318', '56397160600', '57213276294', '56592788400', '57094026700',
+        '57202941647', '55613484700', '57204975149', '57204974337', '57209977071', 
+        '57195415503']
+
+    author_profiles = []
+
+    for author_id in author_ids:
+        # URL API Scopus untuk mengambil profil penulis berdasarkan author_id
+        url = f"https://api.elsevier.com/content/author/author_id/{author_id}"
+        
+        # Mengirim permintaan GET ke API Scopus
+        response = requests.get(url, headers={
+            "Accept": "application/json",
+            "X-ELS-APIKey": SCOPUS_API_KEY
+        })
+
+        # Memeriksa status respons
+        if response.status_code == 200:
+            data = response.json()
+
+            # Mengambil data profil penulis yang relevan
+            subject_areas = [
+                area.get("$", "N/A") 
+                for area in data.get("author-retrieval-response", [{}])[0].get("subject-areas", {}).get("subject-area", [])
+            ]
+
+            # Menyimpan subject areas ke model TopikPenelitian
+            for subject_area in subject_areas:
+                if subject_area != "N/A":  # Abaikan jika nilai tidak valid
+                    # Periksa apakah subject area sudah ada di database
+                    if not TopikPenelitian.objects.filter(nama=subject_area).exists():
+                        TopikPenelitian.objects.create(nama=subject_area)
+
+            # Menambahkan data penulis ke author_profiles (opsional untuk dikembalikan dalam respons)
+            author_profile = {
+                "author_id": author_id,
+                "author_name": data.get("author-retrieval-response", [{}])[0].get("preferred-name", {}).get("given-name", "") + " " +
+                               data.get("author-retrieval-response", [{}])[0].get("preferred-name", {}).get("surname", ""),
+                "document_count": data.get("author-retrieval-response", [{}])[0].get("coredata", {}).get("document-count", "N/A"),
+                "citation_count": data.get("author-retrieval-response", [{}])[0].get("coredata", {}).get("citation-count", "N/A"),
+                "affiliation": data.get("author-retrieval-response", [{}])[0].get("affiliation-current", {}).get("affiliation-name", "N/A"),
+                "subject_areas": subject_areas
+            }
+            author_profiles.append(author_profile)
+        else:
+            author_profiles.append({
+                "author_id": author_id,
+                "error": f"Permintaan gagal dengan status {response.status_code}: {response.text}"
+            })
+        # Hindari terlalu banyak permintaan ke API dalam waktu singkat
+        time.sleep(1)
+
+    return JsonResponse({"authors": author_profiles})
