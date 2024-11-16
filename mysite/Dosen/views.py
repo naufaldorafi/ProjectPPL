@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from Penelitian.models import PenelitianDosen, TopikPenelitian  # Import model dari app penelitian
 from .models import Dosen
 from django.conf import settings
+from django.core.paginator import Paginator
 
 # def Dosen(request):
     # return render(request, 'dosen.html')
@@ -235,3 +236,10 @@ def fetch_author_profile(request):
         time.sleep(1)
 
     return JsonResponse({"authors": author_profiles})
+
+def dosen_list(request):
+    dosen_list = Dosen.objects.all()
+    paginator = Paginator(dosen_list, 8)  # Batasi 8 dosen per halaman
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'Dosen/dosen.html', {'page_obj': page_obj})

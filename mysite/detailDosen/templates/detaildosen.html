@@ -64,9 +64,13 @@
     <div class="rectangle-kepakaran">
       <h2>KEPAKARAN</h2>
       <div class="kepakaran-list">
-        <div class="kepakaran-item">Machine Learning</div>
-        <div class="kepakaran-item">Business Intelligence</div>
-        <div class="kepakaran-item">User Interface</div>
+        {% if dosen.Kepakaran_1 %}
+        <div class="kepakaran-item">{{ dosen.Kepakaran_1.nama }}</div>
+        {% endif %} {% if dosen.Kepakaran_2 %}
+        <div class="kepakaran-item">{{ dosen.Kepakaran_2.nama }}</div>
+        {% endif %} {% if dosen.Kepakaran_3 %}
+        <div class="kepakaran-item">{{ dosen.Kepakaran_3.nama }}</div>
+        {% endif %}
       </div>
     </div>
 
