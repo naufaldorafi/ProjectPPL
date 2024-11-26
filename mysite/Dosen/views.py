@@ -242,4 +242,4 @@ def dosen_list(request):
     paginator = Paginator(dosen_list, 8)  # Batasi 8 dosen per halaman
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'Dosen/dosen.html', {'page_obj': page_obj})
+    return render(request, 'dosen.html', {'page_obj': page_obj})
