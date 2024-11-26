@@ -54,6 +54,22 @@
         {% endfor %}
       </div>
       <!-- Close profile-list -->
+
+      <!-- Pagination Controls -->
+      <div class="pagination">
+        <span class="step-links">
+          {% if page_obj.has_previous %}
+          <a href="?page=1">&laquo; Awal</a>
+          <a href="?page={{ page_obj.previous_page_number }}">Sebelumnya</a>
+          {% endif %}
+
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">Berikutnya</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">Akhir &raquo;</a>
+          {% endif %}
+        </span>
+      </div>
+      <!-- Close pagination controls -->
     </section>
     <!-- Close content section -->
 
