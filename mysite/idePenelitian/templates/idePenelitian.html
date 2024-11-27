@@ -33,7 +33,6 @@
     <!-- Bubble Chat -->
     <div class="chat-container">
       <div class="chat-box" id="chat-box">
-        <div class="bubble bot">Halo! Ada yang bisa saya bantu?</div>
       </div>
       <div class="input-container">
         <input
@@ -55,7 +54,7 @@
         const chatBox = document.getElementById("chat-box");
         const bubble = document.createElement("div");
         bubble.className = `bubble ${sender}`;
-        bubble.innerHTML = message.replace(/\n/g, "<br>"); // Format newline menjadi <br>
+        bubble.innerHTML = message.replace(/\n/g, "<br>"); 
         chatBox.appendChild(bubble);
         chatBox.scrollTop = chatBox.scrollHeight;
       }
@@ -68,6 +67,11 @@
           alert("Input tidak boleh kosong!");
           return;
         }
+
+        const judulElement = document.querySelector(".content .judul");
+        const teksElement = document.querySelector(".content .teks");
+        if (judulElement) judulElement.remove();
+        if (teksElement) teksElement.remove();
 
         addChatBubble("user", userInput);
 
