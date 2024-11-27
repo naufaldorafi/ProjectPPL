@@ -28,16 +28,17 @@
 
     <section class="content">
       <div class="search-bar">
-        <input type="text" placeholder="Cari Dosen" />
-        <button>Cari</button>
+        <form method="get" action="{% url 'dosen' %}">
+          <input type="text" name="q" placeholder="Cari Dosen" value="{{ query }}" />
+          <button type="submit">Cari</button>
+        </form>
       </div>
 
       <div class="profile-list">
-        <!-- Profile Card 1 -->
+        <!-- Profile Cards -->
         {% for dosen in page_obj %}
         <div class="profile-card">
           <div class="profile-image">
-            <!-- Gambar bisa diubah sesuai data yang ada pada model -->
             {% if dosen.FotoDosen %}
             <img src="{{ dosen.FotoDosen.url }}" alt="Profile Picture" />
             {% endif %}
@@ -53,25 +54,22 @@
         </div>
         {% endfor %}
       </div>
-      <!-- Close profile-list -->
 
       <!-- Pagination Controls -->
       <div class="pagination">
         <span class="step-links">
           {% if page_obj.has_previous %}
-          <a href="?page=1">&laquo; Awal</a>
-          <a href="?page={{ page_obj.previous_page_number }}">Sebelumnya</a>
+          <a href="?q={{ query }}&page=1">&laquo; Awal</a>
+          <a href="?q={{ query }}&page={{ page_obj.previous_page_number }}">Sebelumnya</a>
           {% endif %}
 
           {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}">Berikutnya</a>
-          <a href="?page={{ page_obj.paginator.num_pages }}">Akhir &raquo;</a>
+          <a href="?q={{ query }}&page={{ page_obj.next_page_number }}">Berikutnya</a>
+          <a href="?q={{ query }}&page={{ page_obj.paginator.num_pages }}">Akhir &raquo;</a>
           {% endif %}
         </span>
       </div>
-      <!-- Close pagination controls -->
     </section>
-    <!-- Close content section -->
 
     <!-- Menyertakan Footer -->
     {% include 'footer.html' %}
