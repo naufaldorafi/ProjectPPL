@@ -238,8 +238,19 @@ def fetch_author_profile(request):
     return JsonResponse({"authors": author_profiles})
 
 def dosen_list(request):
+    # Get the search query from the request
+    query = request.GET.get('q', '')  # Use 'q' for search query
+
+    # Get the list of professors, filter by query if present
     dosen_list = Dosen.objects.all()
-    paginator = Paginator(dosen_list, 8)  # Batasi 8 dosen per halaman
+
+    if query:
+        dosen_list = dosen_list.filter(NamaDosen__icontains=query)  # Case-insensitive search for NamaDosen
+
+    # Set up pagination (8 items per page)
+    paginator = Paginator(dosen_list, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'dosen.html', {'page_obj': page_obj})
+
+    # Return the filtered and paginated results to the template
+    return render(request, 'dosen.html', {'page_obj': page_obj, 'query': query})
