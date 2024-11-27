@@ -30,30 +30,32 @@
       </p>
     </div>
 
-    <div class="search">
-      <div class="search-bar">
-        <!-- Ikon jam di luar search bar -->
-        <!--<a href="#" class="icon-link" onclick="runCategorizeResearch()">
-            <i class="fas fa-clock"></i>
-        </a>-->
-        <div id="result"></div>
-
-        <!-- Search bar -->
-        <div class="input-container">
-          <i class="fas fa-search"></i>
-          <!-- Ikon search di dalam search bar -->
-          <input
-            type="text"
-            placeholder="Input nama dosen atau topik penelitian"
-          />
-        </div>
+    <!-- Chat Section (Modified) -->
+    <div class="search-bar">
+      <div class="input-container">
+        <i class="fas fa-search" onclick="sendChat()"></i>
+        <input
+          id="chat-input"
+          type="text"
+          placeholder="Input nama dosen atau topik penelitian"
+          onkeypress="handleKeyPress(event)"
+        />
       </div>
     </div>
+
+    <!-- Tempat hasil pencarian/chat -->
+    <div id="result" class="chat-box"></div>
 
     <!-- Menyertakan Footer -->
     {% include 'footer.html' %}
 
     <script>
+      function handleKeyPress(event) {
+        if (event.key === "Enter") {
+          sendChat();
+        }
+      }
+
       function runCategorizeResearch() {
         fetch("{% url 'run_categorize_research' %}", {
           method: "POST",
@@ -73,6 +75,47 @@
             );
           })
           .catch((error) => console.error("Error:", error));
+      }
+
+      function appendMessage(sender, message) {
+        const resultBox = document.getElementById("result");
+        const messageElement = document.createElement("div");
+        messageElement.classList.add("message", sender);
+        messageElement.textContent = message;
+        resultBox.appendChild(messageElement);
+        resultBox.scrollTop = resultBox.scrollHeight; // Auto-scroll ke bawah
+      }
+
+      function sendChat() {
+        const input = document.getElementById("chat-input");
+        const message = input.value.trim();
+        if (!message) {
+          console.error("Input tidak boleh kosong!");
+          return;
+        }
+
+        appendMessage("user", message); // Tampilkan pesan pengguna
+
+        // Simulasikan fetch ke server
+        fetch("/ide-penelitian/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": "{{ csrf_token }}",
+          },
+          body: JSON.stringify({ nama_dosen: message }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Respons dari server:", data);
+            appendMessage("bot", data.message); // Tampilkan respons dari bot
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            appendMessage("bot", "Terjadi kesalahan. Silakan coba lagi.");
+          });
+
+        input.value = ""; // Kosongkan input
       }
     </script>
   </body>
