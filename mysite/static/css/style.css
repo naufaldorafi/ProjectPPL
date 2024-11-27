@@ -81,3 +81,94 @@ body {
   outline: none; /* Hilangkan outline default saat input aktif */
   border-color: #000000; /* Ubah warna border saat focus */
 }
+
+/* Bubble Chat CSS */
+.chat-container {
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 100%;
+}
+
+.chat-box {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  background: none;
+  border: none;
+  width: 90%; /* Lebar mengikuti layar tetapi lebih kecil */
+  max-width: 1700px; /* Batas maksimal lebar chat box */
+  margin-left: 60px;
+}
+
+.bubble {
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 20px;
+  word-wrap: break-word;
+  font-size: 14px;
+  width: fit-content; /* Menyesuaikan panjang teks */
+  max-width: 75%; /* Maksimal 75% dari lebar container */
+}
+
+.bubble.user {
+  background-color: #04458a;
+  color: #fff;
+  margin-left: auto;
+  text-align: right;
+}
+
+.bubble.bot {
+  background-color: #e9e9e9;
+  color: #333;
+  margin-right: auto;
+  text-align: left;
+}
+
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  max-width: 100%; /* Maksimal lebar input */
+  margin-left: 60px;
+  width: 95%;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.input-container button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #04458a;
+  color: white;
+  cursor: pointer;
+}
+
+.input-container button:hover {
+  background-color: #04458a;
+}
+
+.icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Ukuran tombol (lebar dan tinggi sama) */
+  height: 40px;
+  border: none;
+  border-radius: 50%; /* Membuat tombol berbentuk bulat */
+  background-color: #04458a;
+  color: white;
+  cursor: pointer;
+}
+
+.icon-button i {
+  font-size: 16px; /* Ukuran ikon */
+}

@@ -39,4 +39,5 @@ urlpatterns = [
     path('run-categorize-research/', run_categorize_research, name='run_categorize_research'),
     path('fetch-author-profile/', fetch_author_profile, name='fetch_author_profile'),
     path('fetch-scopus-data/', views.fetch_scopus_data_view, name='fetch_scopus_data')
+    
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
