@@ -3,8 +3,10 @@ body {
 }
 
 .content-list {
+    display: flex;
     padding-left: 20px;
     padding-top: 20px;
+    margin-bottom: 20px;
 }
 
 .content {
@@ -24,7 +26,7 @@ body {
     z-index: 1; 
 }
 
-/*Search Publications*/
+/Search Publications/
 .search-container {
     display: flex;
     align-items: center;
@@ -38,7 +40,7 @@ body {
     width: 200px;
 }
 
-/*Filter Publication*/
+/Filter Publication/
 .filter-buttons {
     display: flex;
     gap: 10px;
@@ -70,17 +72,30 @@ body {
 }
 
 .dropdown-content {
-    display: none;
+    display: none; /* Awalnya tersembunyi */
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
+    max-height: 200px; /* Tinggi maksimal dropdown */
+    overflow-y: scroll; /* Scroll jika tinggi melebihi max-height */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 250px; /* Lebar dropdown */
+}
+
+.dropdown-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
 }
 
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 8px 12px;
     text-decoration: none;
     display: block;
 }
@@ -90,8 +105,9 @@ body {
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+    display: block; /* Tampilkan dropdown saat di-hover */
 }
+
 
 .custom-range-container {
     display: flex;
@@ -102,7 +118,7 @@ body {
 h3 {
     font-size: 18px;
     text-align: center;
-    color: #ffffff;
+    color: #000;
     font-weight: 100;
     margin-bottom: 5px;
 }
@@ -150,7 +166,7 @@ span {
     margin: 0 5px; 
 }
 
-/*Publication section*/
+/Publication section/
 .article-container {
     margin-bottom: 30px;
     margin-top: 30px;

@@ -27,12 +27,17 @@
     </div>
 
     <div class="content-list">
-      <div class="search-container">
-        <input
-          type="text"
-          placeholder="Judul Publikasi / Nama Dosen"
-          class="search-input"
-        />
+      <form method="get" action="{% url 'penelitian' %}">
+        <div class="search-container">
+            <input
+                type="text"
+                name="search"
+                placeholder="Input Judul Publikasi..."
+                class="search-input"
+                value="{{ request.GET.search }}"
+            />
+        </div>
+      </form>
         <div class="filter-buttons">
           <div class="dropdown">
             <button class="filter-btn">
@@ -74,12 +79,10 @@
               Dosen <i class="fa fa-chevron-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="#">Drs. Kartono, M. Kom.</a>
-              <a href="#">Badrus Zaman, S.Kom., M.Cs.</a>
-              <a href="#">Dr. Indra Kharisma Raharjana, S.Kom., M.T.</a>
-              <a href="#">Dr. Eva Hariyanti, S.Si., M.T.</a>
-              <a href="#">Endah Purwanti, S.Si., M.Kom.</a>
-            </div>
+              {% for dosen in dosen_list %}
+                  <a href="#">{{ dosen.NamaDosen }}</a>
+              {% endfor %}
+          </div>
           </div>
         </div>
       </div>
