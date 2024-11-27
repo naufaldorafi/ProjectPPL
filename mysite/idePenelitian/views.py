@@ -28,33 +28,32 @@ def idePenelitian(request):
                 "message": "Nama dosen tidak boleh kosong. Silakan masukkan nama dosen."
             })
 
-        # Cari dosen berdasarkan nama (case-insensitive)
-        try:
-            dosen = Dosen.objects.select_related(
-                'Kepakaran_1', 'Kepakaran_2', 'Kepakaran_3'
-            ).get(NamaDosen__iexact=nama_dosen)
-            
-            # Siapkan respons dengan data dosen
+        # Cari dosen berdasarkan substring nama (case-insensitive)
+        dosen_list = Dosen.objects.filter(NamaDosen__icontains=nama_dosen).select_related(
+            'Kepakaran_1', 'Kepakaran_2', 'Kepakaran_3'
+        )
+
+        if dosen_list.exists():
+            # Siapkan pesan dengan daftar dosen yang ditemukan
+            message = "\n\n".join(
+                f"Nama: {dosen.NamaDosen}\n"
+                f"NIDN: {dosen.NIDNDosen}\n"
+                f"Email: {dosen.EmailAkun}\n"
+                f"Kepakaran 1: {dosen.Kepakaran_1.nama if dosen.Kepakaran_1 else 'Tidak ada'}\n"
+                f"Kepakaran 2: {dosen.Kepakaran_2.nama if dosen.Kepakaran_2 else 'Tidak ada'}\n"
+                f"Kepakaran 3: {dosen.Kepakaran_3.nama if dosen.Kepakaran_3 else 'Tidak ada'}"
+                for dosen in dosen_list
+            )
             response = {
                 "status": "success",
-                "message": f"Nama: {dosen.NamaDosen}\n"
-                           f"NIDN: {dosen.NIDNDosen}\n"
-                           f"Email: {dosen.EmailAkun}\n"
-                           f"Kepakaran 1: {dosen.Kepakaran_1.nama if dosen.Kepakaran_1 else 'Tidak ada'}\n"
-                           f"Kepakaran 2: {dosen.Kepakaran_2.nama if dosen.Kepakaran_2 else 'Tidak ada'}\n"
-                           f"Kepakaran 3: {dosen.Kepakaran_3.nama if dosen.Kepakaran_3 else 'Tidak ada'}"
+                "message": message
             }
-        except Dosen.DoesNotExist:
+        else:
             response = {
                 "status": "error",
                 "message": f"Tidak ditemukan dosen dengan nama '{nama_dosen}'. Silakan coba nama lain."
             }
-        except Exception as e:
-            response = {
-                "status": "error",
-                "message": f"Terjadi kesalahan: {str(e)}"
-            }
-        
+
         return JsonResponse(response)
 
     # Jika bukan permintaan POST, render template
