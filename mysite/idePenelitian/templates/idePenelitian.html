@@ -32,8 +32,7 @@
 
     <!-- Bubble Chat -->
     <div class="chat-container">
-      <div class="chat-box" id="chat-box">
-      </div>
+      <div class="chat-box" id="chat-box"></div>
       <div class="input-container">
         <input
           type="text"
@@ -51,67 +50,79 @@
 
     <script>
       function addChatBubble(sender, message) {
-        const chatBox = document.getElementById("chat-box");
-        const bubble = document.createElement("div");
-        bubble.className = `bubble ${sender}`;
-        bubble.innerHTML = message.replace(/\n/g, "<br>"); 
-        chatBox.appendChild(bubble);
-        chatBox.scrollTop = chatBox.scrollHeight;
-      }
+    const chatBox = document.getElementById("chat-box");
+    const bubble = document.createElement("div");
+    bubble.className = `bubble ${sender}`;
+    bubble.innerHTML = message.replace(/\n/g, "<br>");
+    chatBox.appendChild(bubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
 
-      function handleSearch() {
-        const input = document.getElementById("chat-input");
-        const userInput = input.value.trim();
+function handleSearch() {
+    const input = document.getElementById("chat-input");
+    const userInput = input.value.trim();
 
-        if (userInput === "") {
-          alert("Input tidak boleh kosong!");
-          return;
-        }
+    if (userInput === "") {
+        alert("Input tidak boleh kosong!");
+        return;
+    }
 
-        const judulElement = document.querySelector(".content .judul");
-        const teksElement = document.querySelector(".content .teks");
-        if (judulElement) judulElement.remove();
-        if (teksElement) teksElement.remove();
+    // Menghapus teks instruksi jika ada
+    const judulElement = document.querySelector(".content .judul");
+    const teksElement = document.querySelector(".content .teks");
+    if (judulElement) judulElement.remove();
+    if (teksElement) teksElement.remove();
 
-        addChatBubble("user", userInput);
+    // Menambahkan chat bubble user
+    addChatBubble("user", userInput);
 
-        fetch("{% url 'ide-penelitian' %}", {
-          method: "POST",
-          headers: {
+    // Mengirimkan request ke backend Django
+    fetch("{% url 'ide-penelitian' %}", {
+        method: "POST",
+        headers: {
             "Content-Type": "application/json",
-            "X-CSRFToken": "{{ csrf_token }}",
-          },
-          body: JSON.stringify({ nama_dosen: userInput }),
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Gagal mendapatkan respons dari server");
-            }
-            return response.json();
-          })
-          .then((data) => {
-            if (data.status === "success") {
-              addChatBubble("bot", data.message);
-            } else {
-              addChatBubble("bot", data.message || "Hasil tidak ditemukan.");
-            }
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-            addChatBubble("bot", "Terjadi kesalahan, coba lagi nanti.");
-          });
+        },
+        body: JSON.stringify({ nama_dosen: userInput }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+    if (data.status === "success") {
+        if (data.ide_penelitian && data.ide_penelitian.length > 0) {
+            data.ide_penelitian.forEach((penelitian) => {
+              const message = `
+    <div style="font-family: 'Poppins', sans-serif;">
+        <strong>Dosen: ${penelitian.nama_dosen}</strong><br>
+        <strong>Kepakaran: </strong> ${penelitian.kepakaran.join(', ')}<br>
+        <strong>Ide Penelitian: </strong> <pre>${penelitian.ide_penelitian}</pre>
+    </div>
+`;
 
-        input.value = "";
-      }
+addChatBubble("bot", message);
+            });
+        } else {
+            addChatBubble("bot", "Tidak ada ide penelitian yang ditemukan.");
+        }
+    } else {
+        addChatBubble("bot", data.message || "Hasil tidak ditemukan.");
+    }
+})
+    .catch((error) => {
+        console.error("Error:", error);
+        addChatBubble("bot", "Terjadi kesalahan, coba lagi nanti.");
+    });
 
-      document
-        .getElementById("chat-input")
-        .addEventListener("keypress", function (event) {
-          if (event.key === "Enter") {
+    input.value = "";
+}
+
+document
+    .getElementById("chat-input")
+    .addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
             event.preventDefault();
             handleSearch();
-          }
-        });
+        }
+    });
+
     </script>
   </body>
 </html>

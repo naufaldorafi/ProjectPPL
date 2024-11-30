@@ -139,3 +139,6 @@ LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = '/login/'
 
 SCOPUS_API_KEY = '8d1c5ea6ed9e64cfd2dce678c4ac72df'
+
+CSRF_COOKIE_SECURE = False  # Jika Anda menggunakan HTTP, set False
+CSRF_COOKIE_HTTPONLY = False  # Sesuaikan sesuai kebutuhan
