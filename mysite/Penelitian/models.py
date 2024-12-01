@@ -1,6 +1,6 @@
 from django.db import models
 from Dosen.models import Dosen
-# Create your models here. 
+
 class TopikPenelitian(models.Model):
     nama = models.CharField(max_length=100)
 

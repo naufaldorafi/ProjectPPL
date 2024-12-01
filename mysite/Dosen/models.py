@@ -1,5 +1,5 @@
 from django.db import models
-# Create your models here.
+
 class Dosen(models.Model):
           NamaDosen = models.CharField(max_length=200, null=True)
           NIDNDosen = models.CharField(max_length=50, null=True)
