@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from idePenelitian.views import idePenelitian
-from Penelitian.views import Penelitian, run_categorize_research
+from Penelitian.views import Penelitian
 from Dosen import views as dosen_views
 from detailDosen.views import detailDosen
 from login.views import register
@@ -36,7 +36,7 @@ urlpatterns = [
     path('detail/<int:id>/', detailDosen, name='detail-dosen'),
     path('register/', register, name='register'),
     path('', include("django.contrib.auth.urls")),
-    path('run-categorize-research/', run_categorize_research, name='run_categorize_research'),
+    # path('run-categorize-research/', run_categorize_research, name='run_categorize_research'),
     path('fetch-author-profile/', fetch_author_profile, name='fetch_author_profile'),
     path('fetch-scopus-data/', views.fetch_scopus_data_view, name='fetch_scopus_data')
     

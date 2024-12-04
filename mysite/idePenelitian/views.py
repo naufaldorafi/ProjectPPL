@@ -54,7 +54,7 @@ def idePenelitian(request):
 
             # Header dan payload untuk RapidAPI
             headers = {
-                "x-rapidapi-key": "6d79d2d3dbmsh3ac71c987c554bfp1c3c36jsn2627c332c7e4",
+                "x-rapidapi-key": "444af968e2mshb32491a3b3c5721p1634e6jsnd261b351a010",
                 "x-rapidapi-host": "chatgpt-42.p.rapidapi.com",
                 "Content-Type": "application/json"
             }

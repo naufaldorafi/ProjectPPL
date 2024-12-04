@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from .models import PenelitianDosen, Dosen
-import nltk
-from rake_nltk import Rake
+# import nltk
+# from rake_nltk import Rake
 from collections import Counter
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -113,35 +113,35 @@ def dosen_list(request):
         'query': query,
     })
 
-# Download required NLTK resources
-nltk.download('stopwords')
-nltk.download('punkt')
+# # Download required NLTK resources
+# nltk.download('stopwords')
+# nltk.download('punkt')
 
-# Initialize RAKE for keyword extraction
-rake = Rake()
+# # Initialize RAKE for keyword extraction
+# rake = Rake()
 
-# Function to categorize research and extract keywords
-def categorize_research():
-    research_data = PenelitianDosen.objects.filter(status='Active').values('scopus_id', 'judul', 'abstract')
-    all_keywords = []
+# # Function to categorize research and extract keywords
+# def categorize_research():
+#     research_data = PenelitianDosen.objects.filter(status='Active').values('scopus_id', 'judul', 'abstract')
+#     all_keywords = []
 
-    for data in research_data:
-        text = data["judul"] + " " + data["abstract"]
-        rake.extract_keywords_from_text(text)
-        keywords = rake.get_ranked_phrases()
-        all_keywords.extend(keywords)
-    keyword_counts = Counter(all_keywords)
+#     for data in research_data:
+#         text = data["judul"] + " " + data["abstract"]
+#         rake.extract_keywords_from_text(text)
+#         keywords = rake.get_ranked_phrases()
+#         all_keywords.extend(keywords)
+#     keyword_counts = Counter(all_keywords)
 
-    # Format results as a sorted list of dictionaries
-    result = sorted(
-        [{'keyword': keyword, 'count': count} for keyword, count in keyword_counts.items()],
-        key=lambda x: x['count'],
-        reverse=True
-    )
-    return result
+#     # Format results as a sorted list of dictionaries
+#     result = sorted(
+#         [{'keyword': keyword, 'count': count} for keyword, count in keyword_counts.items()],
+#         key=lambda x: x['count'],
+#         reverse=True
+#     )
+#     return result
 
-# API endpoint to run the categorize_research function and return results
-@require_POST
-def run_categorize_research(request):
-    hasil = categorize_research()
-    return JsonResponse({'hasil': hasil})
+# # API endpoint to run the categorize_research function and return results
+# @require_POST
+# def run_categorize_research(request):
+#     hasil = categorize_research()
+#     return JsonResponse({'hasil': hasil})
