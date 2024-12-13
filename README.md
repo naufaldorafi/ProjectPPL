@@ -1,6 +1,6 @@
 # Script-SI
 
-Script-SI adalah sebuah website yang memungkinkan pengguna untuk menghasilkan ide penelitian berdasarkan kepakaran dosen. Dengan Script-SI, Anda dapat memasukkan nama dosen dan mendapatkan saran topik penelitian yang relevan.
+Script-SI adalah sebuah website yang memungkinkan pengguna untuk menghasilkan ide penelitian berdasarkan kepakaran dosen. Dengan Script-SI, Anda dapat memasukkan nama dosen dan mendapatkan saran ide penelitian skripsi yang relevan dengan kepakaran dosen tersebut.
 
 ## Panduan Instalasi dan Penggunaan
 
@@ -22,7 +22,21 @@ Script-SI adalah sebuah website yang memungkinkan pengguna untuk menghasilkan id
      brew install git
      ```
 
-2. Pastikan Anda memiliki Python 3.x terinstall di sistem Anda.
+2. Pastikan Anda memiliki Python 3.x terinstall di sistem Anda. Jika belum, ikuti panduan berikut untuk menginstall Python 3.x:
+   - **Windows**:
+     1. Unduh installer Python dari [situs resmi Python](https://www.python.org/downloads/).
+     2. Jalankan installer, centang opsi "Add Python to PATH", dan ikuti petunjuk instalasi.
+   - **Linux**:
+     Jalankan perintah berikut di terminal:
+     ```bash
+     sudo apt update
+     sudo apt install python3
+     ```
+   - **MacOS**:
+     Gunakan Homebrew untuk menginstall Python dengan perintah:
+     ```bash
+     brew install python3
+     ```
 
 ### Langkah Instalasi
 
@@ -62,5 +76,5 @@ Script-SI adalah sebuah website yang memungkinkan pengguna untuk menghasilkan id
    Buka URL tersebut di browser dengan **Ctrl + klik** pada URL.
 
 ### Selamat Menggunakan Script-SI
-Anda sekarang dapat menggunakan Script-SI untuk menghasilkan ide penelitian sesuai dengan kepakaran dosen yang diinputkan.
+Anda sekarang dapat menggunakan Script-SI untuk menghasilkan ide penelitian skripsi sesuai dengan kepakaran dosen dari dosen yang Anda inputkan.
 
